@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             Text(
               "Configuraciones guardadas:",
-              style: Theme.of(context).textTheme.headline2,
+              style: Theme.of(context).textTheme.headline4,
             ),
             create_simple_card(
               "Titulo de pruebas",
