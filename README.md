@@ -42,3 +42,8 @@ RF-5: Como usuario quiero poder ver un resumen de mi selección
 RF-6: Como usuario quiero poder comprar el coche por la aplicación
 
 ## Requisitos no funcionales
+
+## Estructura del código
+
+- `lib`: contiene todo el código desarrollado en *Flutter*
+- `lib/components`: codigo de distintas componentes graficas que vamos a estar usando en toda la aplicación
