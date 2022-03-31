@@ -27,7 +27,6 @@ class HomePage extends StatefulWidget {
 /// TODO -- creo que lo podemos pasar a StateLess porque de momento la vista no tiene estado como tal,
 /// lo tienen los elementos dentro de la vista
 class _HomePageState extends State<HomePage> {
-
   /// Metodo que define la vista que representa esta pagina
   /// Se ejecuta cada vez que llamamos a setState
   @override
@@ -42,7 +41,6 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-
             // De momento, en la vista lo unico que tenemos es la barra vertical y la lista
             // de configuraciones de coches
             CarConfigurationList(),

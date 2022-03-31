@@ -1,7 +1,6 @@
 /// Representa la configuracion de compra de un coche realizada
 /// TODO -- hay que hacer bien este modelado, pero lo hago asi para poder pintar cosas con mas o menos sentido
 class CarConfiguration {
-
   /// Nombre que le queremos dar a la configuracion
   String config_name = "";
 
