@@ -41,17 +41,6 @@ class _CarConfigurationListState extends State<CarConfigurationList> {
           "Eliminar"));
     }
 
-    widget_list.add(
-      FloatingActionButton(
-        onPressed: () => {
-          this.addConfiguration(
-              CarConfiguration("Configuracion dinamica", 100.0))
-        },
-        tooltip: 'Crear nueva configuracion',
-        child: const Icon(Icons.add),
-      ),
-    );
-
     // Devolvemos todo en una columna
     return Column(children: widget_list);
   }
