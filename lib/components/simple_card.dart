@@ -3,7 +3,19 @@ import 'package:flutter/material.dart';
 /// Funcion para crear una card simple, con un titulo, texto, imagen y dos botones con texto
 /// A partir del codigo, que modificamos:
 ///     - https://andygeek.com/posts/Fundamentos%20de%20Flutter/posts/Creando-cards-en-flutter/
-Card create_simple_card(String title, String card_text, String first_button_text, String second_button_text){
+Card create_simple_card(
+    String title,
+    String card_text,
+    String first_button_text,
+    String second_button_text,
+    [
+        VoidCallback? first_button_callback,
+        VoidCallback? second_button_callback,
+
+    ]
+){
+
+    // Devolvemos la card creada con los parametros pasados
     return Card(
 
         // Con esta propiedad modificamos la forma de nuestro card
@@ -36,8 +48,10 @@ Card create_simple_card(String title, String card_text, String first_button_text
             Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                    FlatButton(onPressed: () => {}, child: Text(first_button_text)),
-                    FlatButton(onPressed: () => {}, child: Text(second_button_text))
+                    // Hago ?? () => {} para asignar una funcion que no hace nada si no se
+                    // pasa la funcion por parametro (null value)
+                    FlatButton(onPressed: first_button_callback ?? () => {}, child: Text(first_button_text)),
+                    FlatButton(onPressed: second_button_callback ?? () => {} , child: Text(second_button_text))
                 ],
                )
             ],
