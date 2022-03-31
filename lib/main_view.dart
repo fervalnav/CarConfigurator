@@ -5,8 +5,6 @@
 // para comenzar el proceso de crear una nueva configuracion
 
 import 'package:flutter/material.dart';
-import 'components/simple_card.dart';
-import 'components/simple_box.dart';
 import 'car_configurator_list.dart';
 
 /// Widget que representa la pagina home de la aplicacion
@@ -35,7 +33,7 @@ class _HomePageState extends State<HomePage> {
       // Barra horizontal en la parte superior de la app
       appBar: AppBar(
         // Tomamos el valor de Homepage para usarlo en la barra
-        title: Text("${widget.title} - Configuraciones"),
+        title: Text("${widget.title}"),
       ),
       body: Center(
         child: Column(
@@ -50,7 +48,7 @@ class _HomePageState extends State<HomePage> {
 
       // TODO -- esto tiene que llevar a la vista para realizar la configuracion
       floatingActionButton: FloatingActionButton(
-        onPressed: () => {},
+        onPressed: () => {Navigator.pushNamed(context, "/nueva_compra")},
         tooltip: 'Crear nueva configuracion',
         child: const Icon(Icons.add),
       ),
