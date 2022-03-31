@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 /// Funcion para crear una card simple, con un titulo, texto, imagen y dos botones con texto
 /// A partir del codigo, que modificamos:
 ///     - https://andygeek.com/posts/Fundamentos%20de%20Flutter/posts/Creando-cards-en-flutter/
-Card create_card(String title, String card_text, String first_button_text, String second_button_text){
+Card create_simple_card(String title, String card_text, String first_button_text, String second_button_text){
     return Card(
 
         // Con esta propiedad modificamos la forma de nuestro card

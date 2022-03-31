@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                             style: Theme.of(context).textTheme.headline4,
                         ),
 
-                        create_card(
+                        create_simple_card(
                             "Titulo de pruebas",
                             "Hola esto es un texto largo de pruebas y no se lo que poner",
                             "Aceptar",
