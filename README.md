@@ -46,4 +46,6 @@ RF-6: Como usuario quiero poder comprar el coche por la aplicación
 ## Estructura del código
 
 - `lib`: contiene todo el código desarrollado en *Flutter*
-- `lib/components`: codigo de distintas componentes graficas que vamos a estar usando en toda la aplicación
+- `lib/components`: código de distintas componentes graficas que vamos a estar usando en toda la aplicación
+- `lib/views`: código de las distintas vistas de la aplicación
+- `lib/backend`: código con la logica de negocio de la aplicación

@@ -5,7 +5,7 @@
 // para comenzar el proceso de crear una nueva configuracion
 
 import 'package:flutter/material.dart';
-import 'car_configurator_list.dart';
+import 'package:CarConfigurator/car_configurator_list.dart';
 
 /// Widget que representa la pagina home de la aplicacion
 /// Es stateful (definimos en el estado en una clase mas abajo)

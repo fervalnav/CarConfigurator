@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'main_view.dart';
-import 'buy_view.dart';
+import 'views/main.dart';
+import 'views/buy.dart';
 
 void main() {
   runApp(const MyApp());

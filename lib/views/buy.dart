@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-
+/// Vista de compra/configuracion de un nuevo coche
 class BuyPage extends StatefulWidget{
   final String title;
 
