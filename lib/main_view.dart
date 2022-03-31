@@ -36,27 +36,15 @@ class _HomePageState extends State<HomePage> {
       // Barra horizontal en la parte superior de la app
       appBar: AppBar(
         // Tomamos el valor de Homepage para usarlo en la barra
-        title: Text(widget.title),
+        title: Text("${widget.title} - Configuraciones"),
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Text(
-              "Configuraciones guardadas:",
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            create_simple_card(
-              "Titulo de pruebas",
-              "Hola esto es un texto largo de pruebas y no se lo que poner",
-              "Aceptar",
-              "Cancelar",
-            ),
-            Row(children: <Widget>[
-              create_simple_box("images/pruebas.jpg", "Primera", 150, 150),
-              create_simple_box("images/pruebas.jpg", "Segunda", 150, 150),
-            ]),
 
+            // De momento, en la vista lo unico que tenemos es la barra vertical y la lista
+            // de configuraciones de coches
             CarConfigurationList(),
           ],
         ),
