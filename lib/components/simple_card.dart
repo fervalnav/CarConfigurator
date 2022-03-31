@@ -41,7 +41,7 @@ Card create_simple_card(
 
                 title: Text(title),
                 subtitle: Text(card_text),
-                leading: Icon(Icons.home),
+                leading: Icon(Icons.car_repair),
                 ),
 
             // Usamos una fila para ordenar los botones del card

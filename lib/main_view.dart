@@ -6,6 +6,7 @@
 
 import 'package:flutter/material.dart';
 import 'components/simple_card.dart';
+import 'components/simple_box.dart';
 
 /// Widget que representa la pagina home de la aplicacion
 /// Es stateful (definimos en el estado en una clase mas abajo)
@@ -71,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                         children: <Widget>[
                         const Text(
                             'You have pushed the button this many times:',
-                            ),
+                        ),
                         Text(
                             '$_counter',
                             style: Theme.of(context).textTheme.headline4,
@@ -83,6 +84,8 @@ class _HomePageState extends State<HomePage> {
                             "Aceptar",
                             "Cancelar",
                         ),
+
+                        create_simple_box("images/pruebas.jpg", "aaa")
 
 
                         ],
