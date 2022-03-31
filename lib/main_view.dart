@@ -85,7 +85,12 @@ class _HomePageState extends State<HomePage> {
                             "Cancelar",
                         ),
 
-                        create_simple_box("images/pruebas.jpg", "aaa")
+                        Row(
+                            children: <Widget>[
+                            create_simple_box("images/pruebas.jpg", "Primera", 200, 200),
+                            create_simple_box("images/pruebas.jpg", "Segunda", 200, 200),
+                            ]
+                        ),
 
 
                         ],
