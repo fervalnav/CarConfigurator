@@ -61,12 +61,6 @@ class _BuyPageState extends State<BuyPage> {
             )),
       ),
 
-      // TODO -- esto tiene que llevar a la vista para realizar la configuracion
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => {},
-        tooltip: 'Crear nueva configuracion',
-        child: const Icon(Icons.add),
-      ),
     );
   }
 }
