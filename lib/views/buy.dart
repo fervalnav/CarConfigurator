@@ -22,15 +22,25 @@ class _BuyPageState extends State<BuyPage> {
       ),
       body: Center(
         child: Column(
+
+          // Para que la columna este "pegada" a la parte superior de la pantalla
           mainAxisAlignment: MainAxisAlignment.start,
+
           children: <Widget>[
             Row(
+
+              // Para que las dos imagenes de esta fila esten centradas
+              mainAxisAlignment: MainAxisAlignment.center,
+
               children: <Widget>[
                 create_simple_box("images/pruebas.jpg", "Modelo"),
                 create_simple_box("images/paleta_colores.jpg", "Color"),
               ],
             ),
             Row(
+              // Para que las dos imagenes de esta fila esten centradas
+              mainAxisAlignment: MainAxisAlignment.center,
+
               children: <Widget>[
                 create_simple_box("images/tapiceria.jpg", "Tapicería"),
                 create_simple_box("images/extras.jpg", "Extras"),
