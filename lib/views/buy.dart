@@ -14,6 +14,11 @@ class BuyPage extends StatefulWidget {
 class _BuyPageState extends State<BuyPage> {
   @override
   Widget build(BuildContext context) {
+
+    // Tamaño de las cajas que van a componer esta vista
+    var size = 175.0;
+
+
     return Scaffold(
       // Barra horizontal en la parte superior de la app
       appBar: AppBar(
@@ -33,8 +38,8 @@ class _BuyPageState extends State<BuyPage> {
               mainAxisAlignment: MainAxisAlignment.center,
 
               children: <Widget>[
-                create_simple_box("images/pruebas.jpg", "Modelo"),
-                create_simple_box("images/paleta_colores.jpg", "Color"),
+                create_simple_box("images/pruebas.jpg", "Modelo", size, size),
+                create_simple_box("images/paleta_colores.jpg", "Color", size, size),
               ],
             ),
             Row(
@@ -42,8 +47,8 @@ class _BuyPageState extends State<BuyPage> {
               mainAxisAlignment: MainAxisAlignment.center,
 
               children: <Widget>[
-                create_simple_box("images/tapiceria.jpg", "Tapicería"),
-                create_simple_box("images/extras.jpg", "Extras"),
+                create_simple_box("images/tapiceria.jpg", "Tapicería", size, size),
+                create_simple_box("images/extras.jpg", "Extras", size, size),
               ],
             ),
           ],
