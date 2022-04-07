@@ -61,6 +61,14 @@ class _BuyPageState extends State<BuyPage> {
             )),
       ),
 
+      // Boton para guardar la configuracion
+      // TODO -- hay que implementar el mecanismo de salvado de esta configuracion
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => {},
+        tooltip: 'Guardar configuracion',
+        child: const Icon(Icons.save),
+      ),
+
     );
   }
 }

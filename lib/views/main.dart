@@ -46,7 +46,6 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
 
-      // TODO -- esto tiene que llevar a la vista para realizar la configuracion
       floatingActionButton: FloatingActionButton(
         onPressed: () => {Navigator.pushNamed(context, "/nueva_compra")},
         tooltip: 'Crear nueva configuracion',
