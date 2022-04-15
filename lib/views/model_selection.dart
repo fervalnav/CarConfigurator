@@ -30,7 +30,7 @@ class ModelList extends StatelessWidget{
                       padding: EdgeInsets.all(10.0),
                       height: 80.0,
                       width: 100.0,
-                      child: Image.asset('assets/images/modelo_${index + 1}.png'),
+                      child: Image.asset('images/modelo_${index + 1}.png'),
                       decoration: BoxDecoration(
                         color: _list[index].color,
                         borderRadius: BorderRadius.circular(18.0),

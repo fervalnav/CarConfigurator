@@ -63,6 +63,10 @@ flutter:
     - images/paleta_colores.jpg
     - images/tapiceria.jpg
     - images/extras.jpg
+    - images/modelo_1.png
+    - images/modelo_2.png
+    - images/modelo_3.png
+    - images/modelo_4.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
