@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'views/main.dart';
 import 'views/buy.dart';
+import 'model_selection.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => const HomePage(title: "Home"),
         "/nueva_compra": (context) => const BuyPage(title: "Compra"),
+        "/seleccion_modelo": (context) => ModelList(),
       },
     );
   }
