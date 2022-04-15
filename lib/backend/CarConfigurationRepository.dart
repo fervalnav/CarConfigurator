@@ -20,6 +20,9 @@ abstract class CarConfigurationRepository{
   /// Notar que no pasamos el identificador de la configuracion que queremos modificar. Esto es
   /// porque CarConfiguration tiene ya dicha identificacion como atributo
   void modify_car_configuration(CarConfiguration new_config);
+
+  /// Devuelve una lista con todas las configuraciones almacenadas en el sistema
+  List<CarConfiguration> get_all_configurations();
 }
 
 /// Implementamos el repositorio de configuraciones
@@ -29,12 +32,7 @@ abstract class CarConfigurationRepository{
 class InMemoryCarConfigurationRepository implements CarConfigurationRepository{
 
   /// Lista que usamos como 'base de datos'
-  /// La inicializamos con algunos valores de pruebas para que al iniciar la aplicacion no aparezca
-  /// todo vacio
-  List<CarConfiguration> list_configurations = [
-    CarConfiguration("Configuracion de pruebas", 200.5),
-    CarConfiguration("Configuracion de pruebas segunda", 100.3141592),
-  ];
+  List<CarConfiguration> list_configurations = [];
 
 
   /// Añadimos una nueva configuracion al repositorio
@@ -51,7 +49,7 @@ class InMemoryCarConfigurationRepository implements CarConfigurationRepository{
   CarConfiguration? find_car_configurationa(UniqueKey id){
 
     // Buscamos la configuracion en nuestra lista de configuraciones
-    for(config in this.list_configurations){
+    for(CarConfiguration config in this.list_configurations){
       if(config.id == id){
         return config;
       }
@@ -77,6 +75,11 @@ class InMemoryCarConfigurationRepository implements CarConfigurationRepository{
 
     // TODO -- hay que implementar esta funcionalidad
 
+  }
+
+
+  List<CarConfiguration> get_all_configurations(){
+    return this.list_configurations;
   }
 
 }
