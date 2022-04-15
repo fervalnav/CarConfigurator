@@ -1,3 +1,5 @@
+import 'package:CarConfigurator/backend/CarConfiguration.dart';
+import 'package:CarConfigurator/backend/DataController.dart';
 import 'package:flutter/material.dart';
 import 'package:CarConfigurator/components/simple_box.dart';
 
@@ -70,7 +72,13 @@ class _BuyPageState extends State<BuyPage> {
       // Boton para guardar la configuracion
       // TODO -- hay que implementar el mecanismo de salvado de esta configuracion
       floatingActionButton: FloatingActionButton(
-        onPressed: () => {},
+        onPressed: () => {
+          DataController()
+            .get_car_config_repo()
+            .add_new_car_configuration(
+                CarConfiguration("Configuracion creada dinamicamente", 13.141516)
+            )
+        },
         tooltip: 'Guardar configuracion',
         child: const Icon(Icons.save),
       ),
