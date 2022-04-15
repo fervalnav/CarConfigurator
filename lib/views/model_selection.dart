@@ -10,14 +10,14 @@ class ModelList extends StatelessWidget{
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
             itemCount: _list.length,
-            padding: EdgeInsets.only(
+            padding: const EdgeInsets.only(
               left: 25.0,
               right: 25.0
             ),
             // el index sirve para recorrer una lista de imagenes y acceder a ellas
             itemBuilder: (BuildContext contextm, int index) {
               return Padding(
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   left: 10.0,
                   right: 10.0,
                   top: 13.0
@@ -27,7 +27,7 @@ class ModelList extends StatelessWidget{
                   children: [
                     Container(
                       // Estamos construyendo las cajas que contienen los iconos
-                      padding: EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(10.0),
                       height: 80.0,
                       width: 100.0,
                       child: Image.asset('images/modelo_${index + 1}.png'),
@@ -37,11 +37,11 @@ class ModelList extends StatelessWidget{
                         boxShadow: _list[index].boxShadow,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15.0,
                     ),
                     // Dibujar nombre de cada modelo
-                    Text(_list[index].text, style: TextStyle(
+                    Text(_list[index].text, style: const TextStyle(
                       color: Colors.black,
                       fontSize: 18.0,
                       fontWeight: FontWeight.w600,
@@ -65,7 +65,7 @@ List<ModelStyle> _list = [
         color: CupertinoColors.darkBackgroundGray.withOpacity(0.7),
         blurRadius: 10.0,
         spreadRadius: 9.0,
-        offset: Offset(3.0, 5.0),
+        offset: const Offset(3.0, 5.0),
       ),
     ],
     text: 'Model 3'

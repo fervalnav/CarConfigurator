@@ -14,24 +14,24 @@ class CarConfigurationList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Lista de widgets que vamos a construir y mostrar en una columna
-    List<Widget> widget_list = [];
+    List<Widget> widgetList = [];
 
     // Lista de configuraciones con las que construimos los widgets
     // Tomamos dicha listas del repositorio de configuraciones
-    List<CarConfiguration> config_list = DataController().get_car_config_repo().get_all_configurations();
+    List<CarConfiguration> configList = DataController().getCatConfigRepo().getAllConfigurations();
     // Iteramos sobre las configuraciones generando los widgets
 
     // Iteramos sobre las configuraciones generando los widgets
-    for (CarConfiguration config in config_list) {
+    for (CarConfiguration config in configList) {
       // Usamos una card personalizada para mostrar la informacion de esta configuracion
-      widget_list.add(create_simple_card(
-          config.config_name,
+      widgetList.add(createSimpleCard(
+          config.configName,
           "El precio de esta configuracion es ${config.cost}",
           "Configurar",
           "Eliminar"));
     }
 
     // Devolvemos todo en una columna
-    return Column(children: widget_list);
+    return Column(children: widgetList);
   }
 }

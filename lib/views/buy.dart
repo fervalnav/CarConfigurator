@@ -23,13 +23,13 @@ class _BuyPageState extends State<BuyPage> {
       // Barra horizontal en la parte superior de la app
       appBar: AppBar(
         // Tomamos el valor de Homepage para usarlo en la barra
-        title: Text("${widget.title}"),
+        title: Text(widget.title),
       ),
       body: Center(
 
         // Añado un padding para que haya espacio con la barra superior de la aplicacion
         child: Padding(
-            padding: EdgeInsets.only(top: 100),
+            padding: const EdgeInsets.only(top: 100),
             child: Column(
 
               // Para que la columna este "pegada" a la parte superior de la pantalla
@@ -42,7 +42,7 @@ class _BuyPageState extends State<BuyPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
 
                   children: <Widget>[
-                    create_simple_box(
+                    createSimpleBox(
                         "images/pruebas.jpg",
                         "Modelo",
                         size, size,
@@ -50,7 +50,7 @@ class _BuyPageState extends State<BuyPage> {
                         // Vamos a la vista de seleccion de modelo
                         () => {Navigator.pushNamed(context, "/seleccion_modelo")},
                     ),
-                    create_simple_box(
+                    createSimpleBox(
                         "images/paleta_colores.jpg", "Color", size, size),
                   ],
                 ),
@@ -59,9 +59,9 @@ class _BuyPageState extends State<BuyPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
 
                   children: <Widget>[
-                    create_simple_box(
+                    createSimpleBox(
                         "images/tapiceria.jpg", "Tapicería", size, size),
-                    create_simple_box(
+                    createSimpleBox(
                         "images/extras.jpg", "Extras", size, size),
                   ],
                 ),
@@ -74,8 +74,8 @@ class _BuyPageState extends State<BuyPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => {
           DataController()
-            .get_car_config_repo()
-            .add_new_car_configuration(
+            .getCatConfigRepo()
+            .addNewCarConfiguration(
                 CarConfiguration("Configuracion creada dinamicamente", 13.141516)
             )
         },

@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
       // Barra horizontal en la parte superior de la app
       appBar: AppBar(
         // Tomamos el valor de Homepage para usarlo en la barra
-        title: Text("${widget.title}"),
+        title: Text(widget.title),
       ),
       body: Center(
         child: Column(
