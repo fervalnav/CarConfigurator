@@ -46,7 +46,7 @@ class _BuyPageState extends State<BuyPage> {
                         size, size,
 
                         // Vamos a la vista de seleccion de modelo
-                        () => Navigator.pushNamed(context, "/seleccion_modelo"),
+                        () => {Navigator.pushNamed(context, "/seleccion_modelo")},
                     ),
                     create_simple_box(
                         "images/paleta_colores.jpg", "Color", size, size),

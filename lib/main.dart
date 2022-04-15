@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'views/main.dart';
 import 'views/buy.dart';
-import 'model_selection.dart';
+import 'views/model_selection.dart';
 
 void main() {
   runApp(const MyApp());
