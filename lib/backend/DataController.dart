@@ -10,7 +10,7 @@ class DataController{
   // Instancia que usamos como unico objeto de la clase creado
   static final DataController _instance = DataController._internal();
 
-  CarConfigurationRepository car_config_repo = InMemoryCarConfigurationRepository();
+  CarConfigurationRepository carConfigRepo = InMemoryCarConfigurationRepository();
 
   /// Constructor real de la unica instancia de esta clase
   /// Es privado, asi que no se puede llamar desde fuera de la clase
@@ -19,11 +19,11 @@ class DataController{
 
     // Inicializamos el repositorio de configuraciones con algunas configuraciones iniciales
     // Para que cuando abramos la app haya algunas configuraciones de ejemplo
-    car_config_repo = InMemoryCarConfigurationRepository();
-    car_config_repo.add_new_car_configuration(
+    carConfigRepo = InMemoryCarConfigurationRepository();
+    carConfigRepo.addNewCarConfiguration(
       CarConfiguration("Configuracion de pruebas", 200.5)
     );
-    car_config_repo.add_new_car_configuration(
+    carConfigRepo.addNewCarConfiguration(
       CarConfiguration("Configuracion de pruebas segunda", 100.3141592)
     );
 
@@ -37,8 +37,8 @@ class DataController{
   }
 
   /// Metodo para obtener el repositorio de configuraciones de coches
-  CarConfigurationRepository get_car_config_repo(){
-    return this.car_config_repo;
+  CarConfigurationRepository getCatConfigRepo(){
+    return carConfigRepo;
   }
 
 }

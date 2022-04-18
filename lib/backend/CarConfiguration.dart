@@ -9,17 +9,14 @@ class CarConfiguration {
   UniqueKey id = UniqueKey();
 
   /// Nombre que le queremos dar a la configuracion
-  String config_name = "";
+  String configName = "";
 
   /// Coste total de la configuracion
   double cost = 0.0;
 
-  CarConfiguration(String config_name, double cost) {
-    this.config_name = config_name;
-    this.cost = cost;
-
+  CarConfiguration(this.configName, this.cost) {
     // Generamos automaticamente el valor del identificador
     // Por tanto, no tenemos que pasarlo como parametro del constructor
-    this.id = UniqueKey();
+    id = UniqueKey();
   }
 }

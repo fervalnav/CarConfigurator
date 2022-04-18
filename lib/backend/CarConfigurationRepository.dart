@@ -7,22 +7,22 @@ import 'package:flutter/material.dart';
 abstract class CarConfigurationRepository{
 
   /// Añadimos una nueva configuracion al repositorio
-  void add_new_car_configuration(CarConfiguration new_config);
+  void addNewCarConfiguration(CarConfiguration newConfig);
 
   /// Buscamos una configuracion en el sistema usando su identificador
-  CarConfiguration? find_car_configurationa(UniqueKey id);
+  CarConfiguration? findCarConfiguration(UniqueKey id);
 
   /// Borramos una configuracion del repositorio
-  void delete_car_configuration(UniqueKey id);
+  void deleteCarConfiguration(UniqueKey id);
 
   /// Modificamos una configuracion en el repositorio
   ///
   /// Notar que no pasamos el identificador de la configuracion que queremos modificar. Esto es
   /// porque CarConfiguration tiene ya dicha identificacion como atributo
-  void modify_car_configuration(CarConfiguration new_config);
+  void modifyCarConfigurations(CarConfiguration newConfig);
 
   /// Devuelve una lista con todas las configuraciones almacenadas en el sistema
-  List<CarConfiguration> get_all_configurations();
+  List<CarConfiguration> getAllConfigurations();
 }
 
 /// Implementamos el repositorio de configuraciones
@@ -32,24 +32,26 @@ abstract class CarConfigurationRepository{
 class InMemoryCarConfigurationRepository implements CarConfigurationRepository{
 
   /// Lista que usamos como 'base de datos'
-  List<CarConfiguration> list_configurations = [];
+  List<CarConfiguration> listConfigurations = [];
 
 
   /// Añadimos una nueva configuracion al repositorio
-  void add_new_car_configuration(CarConfiguration new_config){
+  @override
+  void addNewCarConfiguration(CarConfiguration newConfig){
 
     // TODO -- habria que comprobar que no existe ya una configuracion en el sistema con el
     // identificador de esta nueva config
 
-    list_configurations.add(new_config);
+    listConfigurations.add(newConfig);
 
   }
 
   /// Buscamos una configuracion en el sistema usando su identificador
-  CarConfiguration? find_car_configurationa(UniqueKey id){
+  @override
+  CarConfiguration? findCarConfiguration(UniqueKey id){
 
     // Buscamos la configuracion en nuestra lista de configuraciones
-    for(CarConfiguration config in this.list_configurations){
+    for(CarConfiguration config in listConfigurations){
       if(config.id == id){
         return config;
       }
@@ -61,7 +63,8 @@ class InMemoryCarConfigurationRepository implements CarConfigurationRepository{
   }
 
   /// Borramos una configuracion del repositorio
-  void delete_car_configuration(UniqueKey id){
+  @override
+  void deleteCarConfiguration(UniqueKey id){
 
     // TODO -- hay que implementar esta funcionalidad
 
@@ -71,15 +74,16 @@ class InMemoryCarConfigurationRepository implements CarConfigurationRepository{
   ///
   /// Notar que no pasamos el identificador de la configuracion que queremos modificar. Esto es
   /// porque CarConfiguration tiene ya dicha identificacion como atributo
-  void modify_car_configuration(CarConfiguration new_config){
+  @override
+  void modifyCarConfigurations(CarConfiguration newConfig){
 
     // TODO -- hay que implementar esta funcionalidad
 
   }
 
-
-  List<CarConfiguration> get_all_configurations(){
-    return this.list_configurations;
+  @override
+  List<CarConfiguration> getAllConfigurations(){
+    return listConfigurations;
   }
 
 }
