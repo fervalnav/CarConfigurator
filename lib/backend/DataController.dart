@@ -1,4 +1,4 @@
-import 'package:CarConfigurator/backend/CarConfiguration.dart';
+import 'package:CarConfigurator/models/CarConfiguration.dart';
 import 'package:CarConfigurator/backend/CarConfigurationRepository.dart';
 
 /// Clase que toma el control de toda la persistencia de datos
@@ -21,10 +21,10 @@ class DataController{
     // Para que cuando abramos la app haya algunas configuraciones de ejemplo
     carConfigRepo = InMemoryCarConfigurationRepository();
     carConfigRepo.addNewCarConfiguration(
-      CarConfiguration("Configuracion de pruebas", 200.5)
+      CarConfiguration.origin("Configuracion de pruebas")
     );
     carConfigRepo.addNewCarConfiguration(
-      CarConfiguration("Configuracion de pruebas segunda", 100.3141592)
+      CarConfiguration.origin("Configuracion de pruebas segunda")
     );
 
   }
@@ -37,7 +37,7 @@ class DataController{
   }
 
   /// Metodo para obtener el repositorio de configuraciones de coches
-  CarConfigurationRepository getCatConfigRepo(){
+  CarConfigurationRepository getCarConfigRepo(){
     return carConfigRepo;
   }
 
