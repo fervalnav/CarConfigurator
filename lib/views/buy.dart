@@ -51,7 +51,11 @@ class _BuyPageState extends State<BuyPage> {
                         () => {Navigator.pushNamed(context, "/seleccion_modelo")},
                     ),
                     createSimpleBox(
-                        "images/paleta_colores.jpg", "Color", size, size),
+                        "images/paleta_colores.jpg",
+                        "Color",
+                        size, size,
+                        () => {Navigator.pushNamed(context, "/seleccion_color")},
+                        ),
                   ],
                 ),
                 Row(
@@ -60,7 +64,11 @@ class _BuyPageState extends State<BuyPage> {
 
                   children: <Widget>[
                     createSimpleBox(
-                        "images/tapiceria.jpg", "Tapicería", size, size),
+                        "images/tapiceria.jpg",
+                        "Tapicería",
+                        size, size,
+                         () => {Navigator.pushNamed(context, "/seleccion_tapiceria")},
+                        ),
                     createSimpleBox(
                         "images/extras.jpg", "Extras", size, size),
                   ],

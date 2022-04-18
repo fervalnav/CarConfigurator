@@ -67,6 +67,12 @@ flutter:
     - images/modelo_2.png
     - images/modelo_3.png
     - images/modelo_4.png
+    - images/color_1.png
+    - images/color_2.png
+    - images/color_3.png
+    - images/color_4.png
+    - images/tapiceria_1.jpg
+    - images/tapiceria_2.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
