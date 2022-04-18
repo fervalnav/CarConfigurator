@@ -1,13 +1,17 @@
-import 'package:CarConfigurator/backend/CarConfiguration.dart';
+import 'package:CarConfigurator/main.dart';
+import 'package:CarConfigurator/models/CarConfiguration.dart';
 import 'package:CarConfigurator/backend/DataController.dart';
+import 'package:CarConfigurator/views/selection.dart';
 import 'package:flutter/material.dart';
 import 'package:CarConfigurator/components/simple_box.dart';
+import 'main.dart';
 
 /// Vista de compra/configuracion de un nuevo coche
 class BuyPage extends StatefulWidget {
   final String title;
+  CarConfiguration carConfiguration;
 
-  const BuyPage({Key? key, required this.title}) : super(key: key);
+  BuyPage({Key? key, required this.title, required this.carConfiguration}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _BuyPageState();
@@ -18,12 +22,12 @@ class _BuyPageState extends State<BuyPage> {
   Widget build(BuildContext context) {
     // Tamaño de las cajas que van a componer esta vista
     var size = 175.0;
-
+    print(widget.carConfiguration.getTotalPrice());
     return Scaffold(
       // Barra horizontal en la parte superior de la app
       appBar: AppBar(
         // Tomamos el valor de Homepage para usarlo en la barra
-        title: Text(widget.title),
+        title: Text("${widget.title}: ${widget.carConfiguration.getTotalPrice()}"),
       ),
       body: Center(
 
@@ -48,13 +52,18 @@ class _BuyPageState extends State<BuyPage> {
                         size, size,
 
                         // Vamos a la vista de seleccion de modelo
-                        () => {Navigator.pushNamed(context, "/seleccion_modelo")},
+                        () => {Navigator.pushNamed(context,
+                         "/seleccion_modelo"
+                        )},
                     ),
                     createSimpleBox(
                         "images/paleta_colores.jpg",
                         "Color",
                         size, size,
-                        () => {Navigator.pushNamed(context, "/seleccion_color")},
+                        () => {Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Selection(title: 'Color', options: colorOptions, carConfiguration: widget.carConfiguration))
+                        )},
                         ),
                   ],
                 ),
@@ -67,7 +76,10 @@ class _BuyPageState extends State<BuyPage> {
                         "images/tapiceria.jpg",
                         "Tapicería",
                         size, size,
-                         () => {Navigator.pushNamed(context, "/seleccion_tapiceria")},
+                        () => {Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Selection(title: 'Tapiceria', options: tapiceriaOptions, carConfiguration: widget.carConfiguration))
+                        )},
                         ),
                     createSimpleBox(
                         "images/extras.jpg", "Extras", size, size),
@@ -82,9 +94,9 @@ class _BuyPageState extends State<BuyPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => {
           DataController()
-            .getCatConfigRepo()
+            .getCarConfigRepo()
             .addNewCarConfiguration(
-                CarConfiguration("Configuracion creada dinamicamente", 13.141516)
+                widget.carConfiguration
             )
         },
         tooltip: 'Guardar configuracion',
