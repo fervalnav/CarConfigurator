@@ -47,6 +47,10 @@ class CarConfiguration {
   }
   
   removeExtra(Option extra) => extras.remove(extra);
+
+  contains(Option option) {
+    return [model, color, tapiceria, ...extras].contains(option);
+  }
 }
 
 enum OptionType { model, color, tapiceria, extra}

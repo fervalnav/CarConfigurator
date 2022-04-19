@@ -2,6 +2,7 @@ import 'package:CarConfigurator/models/carConfiguration.dart';
 import 'package:CarConfigurator/views/buy.dart';
 import 'package:flutter/material.dart';
 import 'package:CarConfigurator/models/option.dart';
+import 'package:flutter/cupertino.dart';
 
 class Selection extends StatefulWidget {
   final String title;
@@ -46,20 +47,62 @@ class _Selection extends State<Selection> {
               }
               Navigator.push(context, MaterialPageRoute (builder: (context) =>BuyPage(title: widget.carConfiguration.configName, carConfiguration: widget.carConfiguration)));
             },
-            child: Card(
-              child: ListTile(
-                title: Text(item.text),
-                leading: ConstrainedBox(
-                  constraints: const BoxConstraints(
-                    minWidth: 44,
-                    minHeight: 44,
-                    maxWidth: 64,
-                    maxHeight: 64,
+            child: Padding(
+              padding:
+                  const EdgeInsets.only(left: 10.0, right: 10.0, top: 13.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Container(
+                    // Estamos construyendo las cajas que contienen los iconos
+                    padding: EdgeInsets.zero,
+                    height: 185.0,
+                    width: 300.0,
+                    child: Image.asset(item.link),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(19.0),
+                      boxShadow: (!widget.carConfiguration.contains(item)) ? [] :
+                        [
+                          BoxShadow(
+                            color: CupertinoColors.darkBackgroundGray.withOpacity(0.7),
+                            blurRadius: 10.0,
+                            spreadRadius: 9.0,
+                            offset: const Offset(3.0, 5.0)
+                          )
+                        ]
+                    ),
                   ),
-                  child: Image.asset(item.link, fit: BoxFit.cover),
-                ),
+                  const SizedBox(
+                    height: 15.0,
+                  ),
+                  // Dibujar nombre de cada modelo
+                  Text(
+                   item.text,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  )
+                ],
               ),
             )
+            
+            // Card(
+            //   child: ListTile(
+            //     title: Text(item.text),
+            //     leading: ConstrainedBox(
+            //       constraints: const BoxConstraints(
+            //         minWidth: 44,
+            //         minHeight: 44,
+            //         maxWidth: 64,
+            //         maxHeight: 64,
+            //       ),
+            //       child: Image.asset(item.link, fit: BoxFit.cover),
+            //     ),
+            //   ),
+            // )
           );
         },
       ),

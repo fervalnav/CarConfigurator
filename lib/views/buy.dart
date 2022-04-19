@@ -55,11 +55,12 @@ class _BuyPageState extends State<BuyPage> {
                       () => {
                         Navigator.push(
                             context,
-                            //MaterialPageRoute(builder: (context) => Selection(title: 'Modelo', options: modelOptions, carConfiguration: widget.carConfiguration, type: OptionType.model))
-                            //(context) => ModelList(title: "Modelo")
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    ModelList(title: "Modelo")))
+                                builder: (context) => Selection(
+                                    title: 'Modelo',
+                                    options: modelOptions,
+                                    carConfiguration: widget.carConfiguration,
+                                    type: OptionType.model)))
                       },
                     ),
                     createSimpleBox(

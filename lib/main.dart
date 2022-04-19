@@ -33,7 +33,6 @@ class MyApp extends StatelessWidget {
         "/nueva_compra": (context) => BuyPage(
             title: "Compra",
             carConfiguration: CarConfiguration.origin("Nueva Configuracion")),
-        "/seleccion_modelo": (context) => ModelList(title: "Modelo")
       },
     );
   }
