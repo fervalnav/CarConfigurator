@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'views/main.dart';
 import 'views/buy.dart';
 import 'views/model_selection.dart';
-import 'views/selection.dart';
 import 'models/option.dart';
 
 void main() {
@@ -26,19 +25,12 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => const HomePage(title: "Home"),
-        "/nueva_compra": (context) => BuyPage(title: "Compra", carConfiguration: newConfiguration),
+        "/nueva_compra": (context) => BuyPage(title: "Compra", carConfiguration: CarConfiguration.origin("Nueva Configuracion")),
         "/seleccion_modelo": (context) => ModelList()
       },
     );
   }
 }
-
-CarConfiguration newConfiguration = CarConfiguration(
-  "Nueva configuracion",
-  modelOptions.first,
-  colorOptions.first,
-  tapiceriaOptions.first
-);
 
 List<Option> modelOptions = [
   Option(1, "Model 3", 23000, "images/modelo_1.png"),
@@ -58,3 +50,9 @@ List<Option> tapiceriaOptions = [
   Option(1, "Deportivo", 200, "images/tapiceria_1.jpg"),
   Option(2, "Cuero", 100, "images/tapiceria_2.png"),
 ];
+
+List<Option> extrasOptions = [
+  Option(1, "Altavoces", 200, "images/extras_1.jpg"),
+  Option(2, "Pantalla", 500, "images/extras_2.jpg"),
+];
+
