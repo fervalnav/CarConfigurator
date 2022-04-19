@@ -18,15 +18,22 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'CarConfigurator',
       theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
+          brightness: Brightness.dark,
+          primaryColor: Colors.lightGreen,
+          textTheme: const TextTheme(
+            headline1: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+            headline6: TextStyle(fontSize: 25.0),
+            bodyText2: TextStyle(fontSize: 20.0),
+          )),
 
       // Especificamos las rutas para la navegacion en la app
       initialRoute: "/",
       routes: {
         "/": (context) => const HomePage(title: "Home"),
-        "/nueva_compra": (context) => BuyPage(title: "Compra", carConfiguration: CarConfiguration.origin("Nueva Configuracion")),
-        "/seleccion_modelo": (context) => ModelList()
+        "/nueva_compra": (context) => BuyPage(
+            title: "Compra",
+            carConfiguration: CarConfiguration.origin("Nueva Configuracion")),
+        "/seleccion_modelo": (context) => ModelList(title: "Modelo")
       },
     );
   }
@@ -55,4 +62,3 @@ List<Option> extrasOptions = [
   Option(1, "Altavoces", 200, "images/extras_1.jpg"),
   Option(2, "Pantalla", 500, "images/extras_2.jpg"),
 ];
-
