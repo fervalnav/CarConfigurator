@@ -83,26 +83,14 @@ class _Selection extends State<Selection> {
                       color: Colors.white,
                       fontSize: 20.0,
                       fontWeight: FontWeight.w600,
-                    ),
-                  )
+                    ),                   
+                  ),
+                  const SizedBox(
+                    height: 60.0,
+                  ),
                 ],
               ),
             )
-            
-            // Card(
-            //   child: ListTile(
-            //     title: Text(item.text),
-            //     leading: ConstrainedBox(
-            //       constraints: const BoxConstraints(
-            //         minWidth: 44,
-            //         minHeight: 44,
-            //         maxWidth: 64,
-            //         maxHeight: 64,
-            //       ),
-            //       child: Image.asset(item.link, fit: BoxFit.cover),
-            //     ),
-            //   ),
-            // )
           );
         },
       ),
