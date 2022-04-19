@@ -1,4 +1,4 @@
-import 'package:CarConfigurator/models/CarConfiguration.dart';
+import 'package:CarConfigurator/models/carConfiguration.dart';
 import 'package:flutter/material.dart';
 
 /// Clase abstracta que usaremos como interfaz para definir la funcionalidad que debe implementar
@@ -38,11 +38,11 @@ class InMemoryCarConfigurationRepository implements CarConfigurationRepository{
   /// Añadimos una nueva configuracion al repositorio
   @override
   void addNewCarConfiguration(CarConfiguration newConfig){
-
-    // TODO -- habria que comprobar que no existe ya una configuracion en el sistema con el
     // identificador de esta nueva config
-
-    listConfigurations.add(newConfig);
+    CarConfiguration? config = findCarConfiguration(newConfig.id);
+    if(config != null) {
+      listConfigurations.add(newConfig);
+    }
 
   }
 
@@ -51,22 +51,23 @@ class InMemoryCarConfigurationRepository implements CarConfigurationRepository{
   CarConfiguration? findCarConfiguration(UniqueKey id){
 
     // Buscamos la configuracion en nuestra lista de configuraciones
-    for(CarConfiguration config in listConfigurations){
-      if(config.id == id){
-        return config;
-      }
-    }
-
+    Iterable<CarConfiguration> iter = listConfigurations.where((element) => element.id == id);
+    if(iter.isEmpty) {
     // No hemos encontrado la configuracion buscada
-    return null;
+      return null;
+    } else {
+      return iter.first;
+    }
 
   }
 
   /// Borramos una configuracion del repositorio
   @override
   void deleteCarConfiguration(UniqueKey id){
-
-    // TODO -- hay que implementar esta funcionalidad
+    CarConfiguration? config = findCarConfiguration(id);
+    if(config != null) {
+      listConfigurations.remove(config);
+    }
 
   }
 
@@ -76,8 +77,11 @@ class InMemoryCarConfigurationRepository implements CarConfigurationRepository{
   /// porque CarConfiguration tiene ya dicha identificacion como atributo
   @override
   void modifyCarConfigurations(CarConfiguration newConfig){
-
-    // TODO -- hay que implementar esta funcionalidad
+    CarConfiguration? config = findCarConfiguration(newConfig.id);
+    if(config != null) {
+      listConfigurations.remove(config);
+    }
+    listConfigurations.add(newConfig);
 
   }
 

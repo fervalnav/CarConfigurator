@@ -1,4 +1,4 @@
-import 'package:CarConfigurator/models/CarConfiguration.dart';
+import 'package:CarConfigurator/models/carConfiguration.dart';
 import 'package:CarConfigurator/backend/CarConfigurationRepository.dart';
 
 /// Clase que toma el control de toda la persistencia de datos

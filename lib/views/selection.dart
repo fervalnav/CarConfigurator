@@ -1,4 +1,4 @@
-import 'package:CarConfigurator/models/CarConfiguration.dart';
+import 'package:CarConfigurator/models/carConfiguration.dart';
 import 'package:CarConfigurator/views/buy.dart';
 import 'package:flutter/material.dart';
 import 'package:CarConfigurator/models/option.dart';
