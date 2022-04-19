@@ -1,16 +1,58 @@
 import 'package:CarConfigurator/models/CarConfiguration.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'views/main.dart';
 import 'views/buy.dart';
-import 'views/model_selection.dart';
 import 'models/option.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        title: "Car Configurator",
+        debugShowCheckedModeBanner: false,
+        home: LoadingScreen());
+  }
+}
+
+class LoadingScreen extends StatefulWidget {
+  @override
+  _LoadingScreenState createState() => _LoadingScreenState();
+}
+
+class _LoadingScreenState extends State<LoadingScreen> {
+  @override
+  void initState() {
+    getToken().then((val) {
+      Navigator.of(context)
+          .pushReplacement(MaterialPageRoute(builder: (_) => Home()));
+    });
+    super.initState();
+  }
+
+  // Funcion que al llamarla provoca un delay y devuelve un token de seguridad
+  Future<String> getToken() async {
+    await Future.delayed(const Duration(seconds: 4));
+    return "123";
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(child: Lottie.asset('assets/LogotipoAnimadoLottie.json')),
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override

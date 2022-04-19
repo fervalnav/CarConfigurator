@@ -30,7 +30,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-
+  lottie:
+  
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -75,6 +76,7 @@ flutter:
     - images/tapiceria_2.png
     - images/extras_1.jpg
     - images/extras_2.jpg
+    - assets/LogotipoAnimadoLottie.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
