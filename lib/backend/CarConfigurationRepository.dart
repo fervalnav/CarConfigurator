@@ -40,7 +40,7 @@ class InMemoryCarConfigurationRepository implements CarConfigurationRepository{
   void addNewCarConfiguration(CarConfiguration newConfig){
     // identificador de esta nueva config
     CarConfiguration? config = findCarConfiguration(newConfig.id);
-    if(config != null) {
+    if(config == null) {
       listConfigurations.add(newConfig);
     }
 

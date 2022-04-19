@@ -1,8 +1,9 @@
 import 'package:CarConfigurator/models/carConfiguration.dart';
 import 'package:CarConfigurator/components/simple_card.dart';
 import 'package:CarConfigurator/backend/DataController.dart';
+import 'package:CarConfigurator/views/buy.dart';
 import 'package:flutter/material.dart';
-
+import 'views/buy.dart';
 /// Clase que representa visualmente la lista de configuraciones que tenemos almacenadas en el sistema
 class CarConfigurationList extends StatelessWidget {
   /// Constructor compacto de esta clase
@@ -28,7 +29,13 @@ class CarConfigurationList extends StatelessWidget {
           config.configName,
           "El precio de esta configuracion es ${config.getTotalPrice()}",
           "Configurar",
-          "Eliminar"));
+          "Eliminar",
+          () => {Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => BuyPage(title: 'Color',carConfiguration: config))
+          )},
+          () => {DataController().getCarConfigRepo().deleteCarConfiguration(config.id)}
+        ));
     }
 
     // Devolvemos todo en una columna

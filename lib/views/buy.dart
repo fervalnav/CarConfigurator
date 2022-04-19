@@ -22,7 +22,6 @@ class _BuyPageState extends State<BuyPage> {
   Widget build(BuildContext context) {
     // Tamaño de las cajas que van a componer esta vista
     var size = 175.0;
-    print(widget.carConfiguration.getTotalPrice());
     return Scaffold(
       // Barra horizontal en la parte superior de la app
       appBar: AppBar(
@@ -52,8 +51,9 @@ class _BuyPageState extends State<BuyPage> {
                         size, size,
 
                         // Vamos a la vista de seleccion de modelo
-                        () => {Navigator.pushNamed(context,
-                         "/seleccion_modelo"
+                          () => {Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Selection(title: 'Modelo', options: modelOptions, carConfiguration: widget.carConfiguration, type: OptionType.model))
                         )},
                     ),
                     createSimpleBox(
@@ -62,7 +62,7 @@ class _BuyPageState extends State<BuyPage> {
                         size, size,
                         () => {Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Selection(title: 'Color', options: colorOptions, carConfiguration: widget.carConfiguration))
+                          MaterialPageRoute(builder: (context) => Selection(title: 'Color', options: colorOptions, carConfiguration: widget.carConfiguration, type: OptionType.color))
                         )},
                         ),
                   ],
@@ -78,11 +78,17 @@ class _BuyPageState extends State<BuyPage> {
                         size, size,
                         () => {Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Selection(title: 'Tapiceria', options: tapiceriaOptions, carConfiguration: widget.carConfiguration))
+                          MaterialPageRoute(builder: (context) => Selection(title: 'Tapiceria', options: tapiceriaOptions, carConfiguration: widget.carConfiguration, type: OptionType.tapiceria))
                         )},
                         ),
                     createSimpleBox(
-                        "images/extras.jpg", "Extras", size, size),
+                        "images/extras.jpg",
+                        "Extras",
+                        size, size,
+                        () => {Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Selection(title: 'Extras', options: extrasOptions, carConfiguration: widget.carConfiguration, type: OptionType.extra))
+                        )},),
                   ],
                 ),
               ],
@@ -92,12 +98,13 @@ class _BuyPageState extends State<BuyPage> {
       // Boton para guardar la configuracion
       // TODO -- hay que implementar el mecanismo de salvado de esta configuracion
       floatingActionButton: FloatingActionButton(
-        onPressed: () => {
+        onPressed: () {
           DataController()
             .getCarConfigRepo()
-            .addNewCarConfiguration(
+            .modifyCarConfigurations(
                 widget.carConfiguration
-            )
+            );
+          Navigator.pushNamed(context, "/");
         },
         tooltip: 'Guardar configuracion',
         child: const Icon(Icons.save),

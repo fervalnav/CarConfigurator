@@ -7,7 +7,8 @@ class Selection extends StatefulWidget {
   final String title;
   final List<Option> options;
   CarConfiguration carConfiguration;
-  Selection({Key? key, required this.title, required this.options, required this.carConfiguration}): super(key: key);
+  final OptionType type;
+  Selection({Key? key,  required this.title, required this.options, required this.carConfiguration, required this.type}): super(key: key);
 
    @override
   State<StatefulWidget> createState() => _Selection();
@@ -29,7 +30,20 @@ class _Selection extends State<Selection> {
           return InkWell(
             onTap: () {
               // Guardar item en configuracion activa y redirigir a la pestañas de seleccion
-              widget.carConfiguration.color = widget.options[index];
+              switch(widget.type) {
+                case OptionType.model:
+                  widget.carConfiguration.setModel(widget.options[index]);
+                  break;
+                case OptionType.color:
+                  widget.carConfiguration.setColor(widget.options[index]);
+                  break;
+                case OptionType.tapiceria:
+                  widget.carConfiguration.setTapiceria(widget.options[index]);
+                  break;
+                case OptionType.extra:
+                  widget.carConfiguration.setExtra(widget.options[index]);
+                  break;
+              }
               Navigator.push(context, MaterialPageRoute (builder: (context) =>BuyPage(title: widget.carConfiguration.configName, carConfiguration: widget.carConfiguration)));
             },
             child: Card(

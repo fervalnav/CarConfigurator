@@ -12,8 +12,6 @@ class CarConfiguration {
   /// Nombre que le queremos dar a la configuracion
   String configName = "";
 
-
-
   Option model = Option(1, "Model 3", 23000, "images/modelo_1.png");
   Option color = Option(1, "Blanco", 0, "images/color_1.png");
   Option tapiceria = Option(1, "Deportivo", 200, "images/tapiceria_1.jpg");
@@ -37,4 +35,18 @@ class CarConfiguration {
     }
     return result;
   }
+
+  setModel(Option model) => this.model = model;
+  
+  setColor(Option color) => this.color = color;
+
+  setTapiceria(Option tapiceria) => this.tapiceria = tapiceria;
+
+  setExtra(Option extra) {
+    if(!extras.contains(extra)) extras.add(extra);
+  }
+  
+  removeExtra(Option extra) => extras.remove(extra);
 }
+
+enum OptionType { model, color, tapiceria, extra}
