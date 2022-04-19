@@ -1,4 +1,4 @@
-import 'package:CarConfigurator/models/carConfiguration.dart';
+import 'package:CarConfigurator/models/CarConfiguration.dart';
 import 'package:flutter/material.dart';
 
 /// Clase abstracta que usaremos como interfaz para definir la funcionalidad que debe implementar

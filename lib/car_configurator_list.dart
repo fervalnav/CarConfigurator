@@ -1,4 +1,4 @@
-import 'package:CarConfigurator/models/carConfiguration.dart';
+import 'package:CarConfigurator/models/CarConfiguration.dart';
 import 'package:CarConfigurator/components/simple_card.dart';
 import 'package:CarConfigurator/backend/DataController.dart';
 import 'package:CarConfigurator/views/buy.dart';
