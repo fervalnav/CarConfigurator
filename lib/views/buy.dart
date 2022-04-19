@@ -130,6 +130,24 @@ class _BuyPageState extends State<BuyPage> {
               .getCarConfigRepo()
               .modifyCarConfigurations(widget.carConfiguration);
           Navigator.pushNamed(context, "/");
+
+          // Se crea una SnackBar cuando se pulsa el botón de guardar. Se le podría añadir una acción como por ejemplo un boton 2deshacer"
+          final snackBar = SnackBar(
+            content: const Text(
+              'Configuración guardada',
+              style: const TextStyle(
+                color: Colors.black87,
+                fontSize: 16.0,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+          );
+
+          // Muestra en el Scaffold la SnackBar
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
         },
         tooltip: 'Guardar configuracion',
         child: const Icon(Icons.save),
