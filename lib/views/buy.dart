@@ -1,5 +1,5 @@
 import 'package:CarConfigurator/main.dart';
-import 'package:CarConfigurator/models/CarConfiguration.dart';
+import 'package:CarConfigurator/models/carConfiguration.dart';
 import 'package:CarConfigurator/backend/DataController.dart';
 import 'package:CarConfigurator/views/selection.dart';
 import 'package:flutter/material.dart';
