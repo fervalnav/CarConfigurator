@@ -5,6 +5,8 @@ abstract class ActiveConfigurationRepository {
   getTotalPrice();
   CarConfiguration getActiveConfiguration();
   void setConfig (CarConfiguration config);
+  String getName ();
+  void setName (String name);
   void setModel (Option model);
   void setColor (Option color);
   void setTapiceria (Option tapiceria);
@@ -13,6 +15,7 @@ abstract class ActiveConfigurationRepository {
 }
 
 class InMemoryActiveConfiguration implements ActiveConfigurationRepository {
+
   CarConfiguration activeConfig = CarConfiguration.origin("Nueva Configuracion");
 
   @override
@@ -28,6 +31,16 @@ class InMemoryActiveConfiguration implements ActiveConfigurationRepository {
   @override
   void setConfig (CarConfiguration config) {
     activeConfig = config;
+  }
+
+  @override
+  void setName(String name) {
+    activeConfig.setConfigName(name);
+  }
+
+  @override
+  String getName () {
+    return activeConfig.getConfigName();
   }
 
   @override
@@ -50,4 +63,5 @@ class InMemoryActiveConfiguration implements ActiveConfigurationRepository {
   bool contains(Option o) {
     return activeConfig.contains(o);
   }
+
 }

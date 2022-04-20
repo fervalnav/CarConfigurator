@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                         context,
                         MaterialPageRoute(
                             builder: (context) => BuyPage(
-                                title: 'Configuracion',
+                                title: "Configuración",
                                 configId: item.id
                             ))).then((value) => setState(() {}))
                   }, () {
