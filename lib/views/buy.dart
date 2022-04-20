@@ -29,7 +29,7 @@ class BuyPage extends StatefulWidget {
 
 class _BuyPageState extends State<BuyPage> {
 
-  // GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class _BuyPageState extends State<BuyPage> {
     // Tamaño de las cajas que van a componer esta vista
     var size = MediaQuery.of(context).size.width / 2 * 0.8;
 
-    debugPrint(config.getName());
+    // debugPrint(config.getName());
 
     return Scaffold(
       // Barra horizontal en la parte superior de la app
