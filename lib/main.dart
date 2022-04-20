@@ -1,4 +1,3 @@
-import 'package:CarConfigurator/models/CarConfiguration.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'views/main.dart';
@@ -72,9 +71,7 @@ class Home extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => const HomePage(title: "Home"),
-        "/nueva_compra": (context) => BuyPage(
-            title: "Compra",
-            carConfiguration: CarConfiguration.origin("Nueva Configuracion")),
+        "/nueva_compra": (context) => BuyPage(title: "Compra", configId: null),
       },
     );
   }

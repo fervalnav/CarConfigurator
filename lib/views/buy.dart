@@ -1,3 +1,4 @@
+import 'package:CarConfigurator/backend/ActiveConfiguration.dart';
 import 'package:CarConfigurator/main.dart';
 import 'package:CarConfigurator/models/CarConfiguration.dart';
 import 'package:CarConfigurator/backend/DataController.dart';
@@ -8,11 +9,16 @@ import 'package:CarConfigurator/components/simple_box.dart';
 /// Vista de compra/configuracion de un nuevo coche
 class BuyPage extends StatefulWidget {
   final String title;
-  CarConfiguration carConfiguration;
+  final UniqueKey? configId;
 
-  BuyPage({Key? key, required this.title, required this.carConfiguration})
-      : super(key: key);
-
+  BuyPage({Key? key, required this.title, required this.configId }) : super(key: key) {
+    if(configId != null) {
+      CarConfiguration? aConfig = DataController().getCarConfigRepo().findCarConfiguration(configId ?? UniqueKey());
+      DataController().getActiveConfiguration().setConfig(aConfig ?? CarConfiguration.origin("Nueva Configuracion"));
+    } else {
+    DataController().getActiveConfiguration().setConfig(CarConfiguration.origin("Nueva Configuracion"));
+    }
+  }
   @override
   State<StatefulWidget> createState() => _BuyPageState();
 }
@@ -20,6 +26,7 @@ class BuyPage extends StatefulWidget {
 class _BuyPageState extends State<BuyPage> {
   @override
   Widget build(BuildContext context) {
+    ActiveConfigurationRepository config = DataController().getActiveConfiguration();
     // Tamaño de las cajas que van a componer esta vista
     var size = 175.0;
     return Scaffold(
@@ -27,7 +34,7 @@ class _BuyPageState extends State<BuyPage> {
       appBar: AppBar(
         // Tomamos el valor de Homepage para usarlo en la barra
         title:
-            Text("${widget.title}: ${widget.carConfiguration.getTotalPrice()}"),
+            Text(widget.title),
       ),
       body: Center(
         // Añado un padding para que haya espacio con la barra superior de la aplicacion
@@ -57,7 +64,6 @@ class _BuyPageState extends State<BuyPage> {
                                 builder: (context) => Selection(
                                     title: 'Modelo',
                                     options: modelOptions,
-                                    carConfiguration: widget.carConfiguration,
                                     type: OptionType.model)))
                       },
                     ),
@@ -73,8 +79,8 @@ class _BuyPageState extends State<BuyPage> {
                                 builder: (context) => Selection(
                                     title: 'Color',
                                     options: colorOptions,
-                                    carConfiguration: widget.carConfiguration,
                                     type: OptionType.color)))
+                          .then((value) => setState(() {}))
                       },
                     ),
                   ],
@@ -96,8 +102,8 @@ class _BuyPageState extends State<BuyPage> {
                                 builder: (context) => Selection(
                                     title: 'Tapiceria',
                                     options: tapiceriaOptions,
-                                    carConfiguration: widget.carConfiguration,
                                     type: OptionType.tapiceria)))
+                          .then((value) => setState(() {}))
                       },
                     ),
                     createSimpleBox(
@@ -112,8 +118,8 @@ class _BuyPageState extends State<BuyPage> {
                                 builder: (context) => Selection(
                                     title: 'Extras',
                                     options: extrasOptions,
-                                    carConfiguration: widget.carConfiguration,
                                     type: OptionType.extra)))
+                        .then((value) => setState(() {}))
                       },
                     ),
                   ],
@@ -123,19 +129,18 @@ class _BuyPageState extends State<BuyPage> {
       ),
 
       // Boton para guardar la configuracion
-      // TODO -- hay que implementar el mecanismo de salvado de esta configuracion
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           DataController()
               .getCarConfigRepo()
-              .modifyCarConfigurations(widget.carConfiguration);
-          Navigator.pushNamed(context, "/");
+              .modifyCarConfigurations(config.getActiveConfiguration());
+          Navigator.pop(context, false);
 
           // Se crea una SnackBar cuando se pulsa el botón de guardar. Se le podría añadir una acción como por ejemplo un boton 2deshacer"
           final snackBar = SnackBar(
             content: const Text(
               'Configuración guardada',
-              style: const TextStyle(
+              style: TextStyle(
                 color: Colors.black87,
                 fontSize: 16.0,
                 fontWeight: FontWeight.w400,
