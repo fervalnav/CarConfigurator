@@ -1,51 +1,48 @@
+import 'package:CarConfigurator/backend/ActiveConfiguration.dart';
+import 'package:CarConfigurator/backend/DataController.dart';
 import 'package:CarConfigurator/models/CarConfiguration.dart';
-import 'package:CarConfigurator/views/buy.dart';
 import 'package:flutter/material.dart';
 import 'package:CarConfigurator/models/option.dart';
 import 'package:flutter/cupertino.dart';
 
-class Selection extends StatefulWidget {
+class Selection extends StatelessWidget {
   final String title;
   final List<Option> options;
-  CarConfiguration carConfiguration;
   final OptionType type;
-  Selection({Key? key,  required this.title, required this.options, required this.carConfiguration, required this.type}): super(key: key);
+  const Selection({Key? key,  required this.title, required this.options, required this.type}): super(key: key);
 
-   @override
-  State<StatefulWidget> createState() => _Selection();
-}
-
-class _Selection extends State<Selection> {
+  @override
   @override
   Widget build(BuildContext context) {
+    ActiveConfigurationRepository config = DataController().getActiveConfiguration();
     return Scaffold(
       // Barra horizontal en la parte superior de la app
       appBar: AppBar(
         // Tomamos el valor de Homepage para usarlo en la barra
-        title: Text(widget.title),
+        title: Text(title),
       ),
       body: ListView.builder(
-        itemCount: widget.options.length,
+        itemCount: options.length,
         itemBuilder: (context, index) {
-          final item = widget.options[index];
+          final item = options[index];
           return InkWell(
             onTap: () {
               // Guardar item en configuracion activa y redirigir a la pestañas de seleccion
-              switch(widget.type) {
+              switch(type) {
                 case OptionType.model:
-                  widget.carConfiguration.setModel(widget.options[index]);
+                  config.setModel(options[index]);
                   break;
                 case OptionType.color:
-                  widget.carConfiguration.setColor(widget.options[index]);
+                 config.setColor(options[index]);
                   break;
                 case OptionType.tapiceria:
-                  widget.carConfiguration.setTapiceria(widget.options[index]);
+                  config.setTapiceria(options[index]);
                   break;
                 case OptionType.extra:
-                  widget.carConfiguration.setExtra(widget.options[index]);
+                  config.setExtra(options[index]);
                   break;
               }
-              Navigator.push(context, MaterialPageRoute (builder: (context) =>BuyPage(title: widget.carConfiguration.configName, carConfiguration: widget.carConfiguration)));
+              Navigator.pop(context, false);
             },
             child: Padding(
               padding:
@@ -62,7 +59,7 @@ class _Selection extends State<Selection> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(19.0),
-                      boxShadow: (!widget.carConfiguration.contains(item)) ? [] :
+                      boxShadow: (!config.contains(item)) ? [] :
                         [
                           BoxShadow(
                             color: CupertinoColors.darkBackgroundGray.withOpacity(0.7),

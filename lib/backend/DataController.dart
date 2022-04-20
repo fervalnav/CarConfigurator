@@ -1,3 +1,4 @@
+import 'package:CarConfigurator/backend/ActiveConfiguration.dart';
 import 'package:CarConfigurator/models/CarConfiguration.dart';
 import 'package:CarConfigurator/backend/CarConfigurationRepository.dart';
 
@@ -11,6 +12,7 @@ class DataController{
   static final DataController _instance = DataController._internal();
 
   CarConfigurationRepository carConfigRepo = InMemoryCarConfigurationRepository();
+  ActiveConfigurationRepository activeConfig = InMemoryActiveConfiguration();
 
   /// Constructor real de la unica instancia de esta clase
   /// Es privado, asi que no se puede llamar desde fuera de la clase
@@ -26,6 +28,8 @@ class DataController{
     carConfigRepo.addNewCarConfiguration(
       CarConfiguration.origin("Configuracion de pruebas segunda")
     );
+    activeConfig = InMemoryActiveConfiguration();
+
 
   }
 
@@ -39,6 +43,10 @@ class DataController{
   /// Metodo para obtener el repositorio de configuraciones de coches
   CarConfigurationRepository getCarConfigRepo(){
     return carConfigRepo;
+  }
+
+  ActiveConfigurationRepository getActiveConfiguration() {
+    return activeConfig;
   }
 
 }
