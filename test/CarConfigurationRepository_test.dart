@@ -98,6 +98,41 @@ void main() {
       expect(other_found_config, null);
     });
 
+    test("La funcionalidad de eliminar configuraciones funciona como se espera", (){
+      InMemoryCarConfigurationRepository repo = create_basic_repo();
+
+      // Añado una nueva config que luego voy a borrar
+      CarConfiguration new_conf = CarConfiguration("Configuracion nueva", modelOptions[1], colorOptions[3], tapiceriaOptions[0]);
+      repo.addNewCarConfiguration(new_conf);
+      expect(repo.getAllConfigurations().length, 4);
+
+      // Borramos la configuracion e intentamos buscarla en el repositorio
+      repo.deleteCarConfiguration(new_conf.id);
+      expect(repo.getAllConfigurations().length, 3);
+      expect(repo.findCarConfiguration(new_conf.id), null);
+    });
+
+    test("Borrar dos veces la misma configuracion solo borra en la primera vez", (){
+      InMemoryCarConfigurationRepository repo = create_basic_repo();
+
+      // Añado una nueva config que luego voy a borrar
+      CarConfiguration new_conf = CarConfiguration("Configuracion nueva", modelOptions[1], colorOptions[3], tapiceriaOptions[0]);
+      repo.addNewCarConfiguration(new_conf);
+      expect(repo.getAllConfigurations().length, 4);
+
+      // Borramos la configuracion e intentamos buscarla en el repositorio
+      repo.deleteCarConfiguration(new_conf.id);
+      expect(repo.getAllConfigurations().length, 3);
+      expect(repo.findCarConfiguration(new_conf.id), null);
+
+
+      // Volvemos a borrar, no deberia cambiar el estado del repositorio
+      repo.deleteCarConfiguration(new_conf.id);
+      expect(repo.getAllConfigurations().length, 3);
+      expect(repo.findCarConfiguration(new_conf.id), null);
+    });
+
+
 
 
   });
