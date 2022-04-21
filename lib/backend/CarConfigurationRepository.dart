@@ -25,6 +25,8 @@ abstract class CarConfigurationRepository{
   List<CarConfiguration> getAllConfigurations();
 }
 
+
+
 /// Implementamos el repositorio de configuraciones
 /// Guardamos y administramos los datos en memoria. No estamos conectandonos a una base de datos
 /// ni usando el sistema de ficheros para persistir los datos. Esto se hara mas adelante cuando

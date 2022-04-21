@@ -43,10 +43,10 @@ Card createSimpleCard(
           children: <Widget>[
             // Hago ?? () => {} para asignar una funcion que no hace nada si no se
             // pasa la funcion por parametro (null value)
-            FlatButton(
+            TextButton(
                 onPressed: firstButtonCallback ?? () => {},
                 child: Text(firstButtonText)),
-            FlatButton(
+            TextButton(
                 onPressed: secondButtonCallback ?? () => {},
                 child: Text(secondButtonText))
           ],
