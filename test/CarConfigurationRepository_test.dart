@@ -55,9 +55,31 @@ void main() {
     // test('value should start at 0', () {
     //   expect(Counter().value, 0);
     // });
+
     test("Los valores se almacenan correctamente", (){
       InMemoryCarConfigurationRepository repo = create_basic_repo();
       expect(repo.getAllConfigurations().length, 3);
+    });
+
+
+    test("La funcionalidad de añadir funciona como se espera", (){
+      InMemoryCarConfigurationRepository repo = create_basic_repo();
+
+      // Añado una nueva config, asi que deberiamos tener 4 configuraciones almacenadas
+      CarConfiguration new_conf = CarConfiguration("Configuracion nueva", modelOptions[1], colorOptions[3], tapiceriaOptions[0]);
+      repo.addNewCarConfiguration(new_conf);
+      expect(repo.getAllConfigurations().length, 4);
+
+      // Añado una nueva config, asi que deberiamos tener 5 configuraciones almacenadas
+      // Al estar creando una configuracion con los mismos datos, pero UniqueKey distinta (de lo que
+      // se encarga la clase CarConfiguration), deberiamos añadir un nuevo elemento
+      CarConfiguration other_new_conf = CarConfiguration("Configuracion nueva", modelOptions[1], colorOptions[3], tapiceriaOptions[0]);
+      repo.addNewCarConfiguration(other_new_conf);
+      expect(repo.getAllConfigurations().length, 5);
+
+      // Pero ahora si usamos el mismo objeto, la nueva configuracion no se debe añadir
+      repo.addNewCarConfiguration(other_new_conf);
+      expect(repo.getAllConfigurations().length, 5);
     });
 
   });
