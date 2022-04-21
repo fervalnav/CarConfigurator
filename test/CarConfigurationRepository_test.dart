@@ -131,9 +131,5 @@ void main() {
       expect(repo.getAllConfigurations().length, 3);
       expect(repo.findCarConfiguration(new_conf.id), null);
     });
-
-
-
-
   });
 }
