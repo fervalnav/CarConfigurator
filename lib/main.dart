@@ -77,6 +77,7 @@ class Home extends StatelessWidget {
   }
 }
 
+/// TODO -- esto deberia ir guardado en otro lugar!
 List<Option> modelOptions = [
   Option(1, "Model 3", 23000, "images/modelo_1.png"),
   Option(2, "Model Y", 25000, "images/modelo_2.png"),

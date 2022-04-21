@@ -43,7 +43,7 @@ class CarConfiguration {
   }
 
   setModel(Option model) => this.model = model;
-  
+
   setColor(Option color) => this.color = color;
 
   setTapiceria(Option tapiceria) => this.tapiceria = tapiceria;
@@ -51,7 +51,7 @@ class CarConfiguration {
   setExtra(Option extra) {
     if(!extras.contains(extra)) extras.add(extra);
   }
-  
+
   removeExtra(Option extra) => extras.remove(extra);
 
   contains(Option option) {
