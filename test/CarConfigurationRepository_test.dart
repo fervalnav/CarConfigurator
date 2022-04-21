@@ -61,7 +61,6 @@ void main() {
       expect(repo.getAllConfigurations().length, 3);
     });
 
-
     test("La funcionalidad de añadir funciona como se espera", (){
       InMemoryCarConfigurationRepository repo = create_basic_repo();
 
@@ -81,6 +80,25 @@ void main() {
       repo.addNewCarConfiguration(other_new_conf);
       expect(repo.getAllConfigurations().length, 5);
     });
+
+    test("La funcionalidad de buscar configuraciones funciona como se espera", (){
+      InMemoryCarConfigurationRepository repo = create_basic_repo();
+
+      // Añado una nueva config y la busco
+      CarConfiguration new_conf = CarConfiguration("Configuracion nueva", modelOptions[1], colorOptions[3], tapiceriaOptions[0]);
+      repo.addNewCarConfiguration(new_conf);
+
+      CarConfiguration? found_config = repo.findCarConfiguration(new_conf.id);
+      expect(found_config, new_conf);
+
+      // Si creo una configuracion con los mismos valores, el id deberia ser diferente, y por tanto
+      // al buscar no deberiamos encontrar nada
+      CarConfiguration other_conf = CarConfiguration("Configuracion nueva", modelOptions[1], colorOptions[3], tapiceriaOptions[0]);
+      CarConfiguration? other_found_config = repo.findCarConfiguration(other_conf.id);
+      expect(other_found_config, null);
+    });
+
+
 
   });
 }
