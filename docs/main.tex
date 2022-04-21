@@ -1,5 +1,9 @@
 \input{preambuloSimple.tex}
 
+
+% Para usar urls
+\usepackage{hyperref}
+
 %----------------------------------------------------------------------------------------
 %	TÍTULO Y DATOS
 %----------------------------------------------------------------------------------------
@@ -203,8 +207,17 @@ En segundo lugar, buscamos reusar todo el código posible para la creación de l
 \\\\
 En parte estamos implementando el patrón \emph{Modelo - Vista - Controlador}, aunque sin el controlador. Tenemos un modelo para la configuración del coche, que interactúa con la parte de persistencia de datos y con las vistas de la aplicación.
 
+\newpage
 
+\section{Uso de \emph{Github}}
 
+Como sistema de control de versiones hemos usado \emph{Github}. Para organizar el trabajo, hemos usado los siguientes procedimientos:
 
+\begin{itemize}
+    \item Uso de \emph{issues} para marcar las tareas a completar. También hemos usado \emph{issues} para discutir sobre distintos patrones a usar
+    \item Uso de ramas para desarrollar código en paralelo. Con \emph{pull requests} revisamos y añadimos el código a la rama principal del repositorio
+\end{itemize}
+
+El repositorio se puede encontrar en \href{https://github.com/fervalnav/CarConfigurator}{esta dirección}.
 
 \end{document}
