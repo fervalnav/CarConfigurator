@@ -4,8 +4,8 @@
 %	TÍTULO Y DATOS
 %----------------------------------------------------------------------------------------
 
-\title{	
-\normalfont \normalsize 
+\title{
+\normalfont \normalsize
 \textsc{\textbf{Desarrollo de Software (2021-2022)} \\ Grado en Ingeniería Informática \\ Universidad de Granada} \\ [25pt] % Your university, school and/or department name(s)
 \horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
 \huge Práctica 2. Car Configurator \\ % The assignment title
@@ -145,41 +145,50 @@ En esta etapa de la aplicación, estamos utilizando una galería de imágenes re
 
 \section{Patrones}
 
-%------------------------------------------------
+\subsection{Patrón repositorio}
+
+En este patrón buscamos modelar cómo vamos a manejar la persistencia de datos. Es una parte fundamental por los siguientes motivos:
 
 \begin{itemize}
-    \item \textbf{Patrón singleton}
-        \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.6]{imagenes/ds-singleton1.png}
-        \end{figure}
-        \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.6]{imagenes/ds-singleton2.png}
-        \end{figure}
-        
-        \newpage
-        
-        \item \textbf{Patrón repositorio}
-        \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.55]{imagenes/ds-repository1.png}
-        \end{figure}
-        \begin{figure}[H]
-        \centering
-        \includegraphics[scale=0.55]{imagenes/ds-repository2.png}
-        \end{figure}
-        
-    % \item \textbf{Patrón visitante}
-        % \begin{figure}[H]
-        % \centering
-        % \includegraphics[scale=0.55]{imagenes/conf_componente_view.drawio.png}
-        % \end{figure}
+    \item En la aplicación, vamos a acceder constantemente a esta parte de persistencia de datos. Por tanto, para mantener un código limpio es fundamental que el acceso a la persistencia de datos sea cómoda y sencilla
+    \item Es una parte que va a ser modificada. Ahora mismo solo modelamos esta persistencia de datos usando objetos en memoria. Pero en las siguientes prácticas, desarrollaremos una \emph{API Rest} para implementar esta persistencia de datos con una base de datos
+    \item A la hora de escribir \emph{tests} en nuestra aplicación (cosa que no hemos hecho), es importante poder \emph{mockear} la persistencia de datos
 \end{itemize}
 
+Esto motiva el uso de patrón repositorio. Declaramos una interfaz que indica cómo se realizan las operaciones \emph{CRUD} de distintos conceptos de nuestra capa de negocio. Con esto, el acceso a estos datos es uniformizado y simplificado en toda la aplicación. Podemos tener distintas implementaciones para estas operaciones (ahora mismo solo tenemos objetos en memoria, pero con ese patrón es muy fácil implementar el acceso a una base de datos, a una \emph{API REST}, \ldots)
+\\\\
+Además, a la hora de implementar un \emph{mock}, solo tenemos que realizar una implementación de la interfaz. De hecho, los objetos que tenemos almacenados en memoria para nuestra aplicación sirven como un futuro \emph{mock}.
+\\\\
+Mostramos el código que implementa esta patrón en las siguientes figuras:
 
+\newpage
 
-%------------------------------------------------
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.55]{imagenes/ds-repository1.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.55]{imagenes/ds-repository2.png}
+\end{figure}
+
+\newpage
+
+\subsection{Patrón \emph{singleton}}
+
+Mostramos el código que implementa este patrón en las siguientes figuras:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{imagenes/ds-singleton1.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{imagenes/ds-singleton2.png}
+\end{figure}
+
+\newpage
+
 
 
 \end{document}
