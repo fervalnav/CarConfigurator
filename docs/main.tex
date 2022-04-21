@@ -1,0 +1,185 @@
+\input{preambuloSimple.tex}
+
+%----------------------------------------------------------------------------------------
+%	TÍTULO Y DATOS
+%----------------------------------------------------------------------------------------
+
+\title{	
+\normalfont \normalsize 
+\textsc{\textbf{Desarrollo de Software (2021-2022)} \\ Grado en Ingeniería Informática \\ Universidad de Granada} \\ [25pt] % Your university, school and/or department name(s)
+\horrule{0.5pt} \\[0.4cm] % Thin top horizontal rule
+\huge Práctica 2. Car Configurator \\ % The assignment title
+\horrule{2pt} \\[0.5cm] % Thick bottom horizontal rule
+}
+
+\author{Sergio Quijano Rey\\Fernando Valdés Navarro\\Ignacio Carvajal Herrera\\Carlos Corts Valdivia} % Nombre y apellidos
+
+\date{\normalsize\today} % Incluye la fecha actual
+
+%----------------------------------------------------------------------------------------
+% DOCUMENTO
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Muestra el Título
+
+\newpage %inserta un salto de página
+
+\tableofcontents % para generar el índice de contenidos
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	1. Introducción
+%----------------------------------------------------------------------------------------
+
+\section{Introducción}
+
+%------------------------------------------------
+
+Nuestra aplicación consiste en un personalizador de coches, en el cual puedes elegir diferentes modelos y configurar distintas partes con varias opciones. Una vez finalizado el proceso de configuración, el usuario podrá o bien guardar la configuración para más adelante, o bien añadirlo al carrito y comenzar el pago.
+\\\\
+En esta etapa de la aplicación, estamos utilizando una galería de imágenes reducida y estática, pero en una versión más completa de la app se podría pensar en acceder a una Base de Datos en la que la marca de coches sube fotos de los distintos modelos configurados con todo tipo de opciones, de forma que según el usuario va configurando el coche, podría ir observando cuál sería el resultado.
+
+
+%----------------------------------------------------------------------------------------
+%	2. Requisitos funcionales
+%----------------------------------------------------------------------------------------
+
+\section{Requisitos funcionales}
+
+%------------------------------------------------
+\begin{itemize}
+    \item \textbf{RF 1. Gestión de usuarios:} este requisito queda pospuesto para futuras versiones, ya que sería necesario interactuar con una BD.
+    \begin{itemize}
+        \item \textbf{RF 1.1.} Darse de alta como usuario.
+        \item \textbf{RF 1.2.} Darse de baja como usuario.
+        \item \textbf{RF 1.3.} Identificarse como usuario.
+        \item \textbf{RF 1.4.} Consultar tus datos de usuario.
+        \item \textbf{RF 1.5.} Modificar tus datos de usuario.
+    \end{itemize}
+    \item \textbf{RF 2. Gestión de configuraciones: } este requisito se aplica tanto a modelos preconfigurados como a los que el usuario configura desde 0.
+    \begin{itemize}
+        \item \textbf{RF 2.1.} Comenzar nueva configuración desde 0.
+        \item \textbf{RF 2.2.} Borrar una configuración guardada.
+        \item \textbf{RF 2.3.} Modificar configuración ya existente (preconfigurada o guardada).
+        \item \textbf{RF 2.4.} Previsualizar una configuración ya existente (opción pospuesta para futuros accesos a BD con una galería más grande y variada de fotos).
+        % BORRAR: aquí para esta versión podríamos hacer que al pulsar sobre uno de esos modelos preconfigurados, nos dé la opción de previsualizar o de comenzar a configurar a partir de ese modelo. En la previsualización, en lugar de una foto del modelo elegido con las opciones elegidas, podemos simplemente mostrar la configuración por texto con una lista con las distintas opciones.
+    \end{itemize}
+    \item \textbf{RF 3. Gestión del catálogo:} este requisito queda pospuesto para futuras versiones, ya que sería necesario interactuar con una BD. Además, iría más destinado a un usuario con privilegios de administrador.
+    \begin{itemize}
+        \item \textbf{RF 3.1.} Añadir nueva parte configurable.
+        \item \textbf{RF 3.2.} Eliminar parte configurable.
+        \item \textbf{RF 3.3.} Modificar parte configurable (nombre, descripción, etc.).
+        \item \textbf{RF 3.4.} Añadir nueva opción de una parte configurable.
+        \item \textbf{RF 3.5.} Eliminar una opción de una parte configurable.
+        \item \textbf{RF 3.6.} Modificar una opción de una parte configurable (nombre, descripción, fotos, etc.).
+    \end{itemize}
+    \item \textbf{RF 4. Gestión de compra:} este requisito realmente no es responsabilidad de la aplicación, sino que sería administrado por una tercera parte.
+    \begin{itemize}
+        \item \textbf{RF 4.1.} Realizar pedido (revisar carrito y proceder al pago).
+        \item \textbf{RF 4.2.} Consultar pedidos realizados (para futuras versiones en las que haya gestión de usuarios).
+        \item \textbf{RF 4.3.} Cancelar o modificar pedido (no es responsabilidad de la aplicación, sino de una entidad externa).
+        \item \textbf{RF 4.4.} Realizar pago (no es responsabilidad de la aplicación, sino de una entidad externa).
+    \end{itemize}
+\end{itemize}
+
+%----------------------------------------------------------------------------------------
+%	3. Requisitos no funcionales
+%----------------------------------------------------------------------------------------
+
+\section{Requisitos no funcionales}
+
+%------------------------------------------------
+
+\begin{itemize}
+    \item \textbf{RNF 1. Seguro:} deben mantenerse protegidos los datos de los usuarios.
+    \item \textbf{RNF 2. Evolutivo:} permitiendo añadir/eliminar/modificar partes configurables, opciones para una parte, métodos de pago, etc.
+    \item \textbf{RNF 3. GUI amigable:} fácil de usar, intuitiva, destinada a un usuario medio.
+\end{itemize}
+
+%----------------------------------------------------------------------------------------
+%	4. Diagramas sobre funcionamiento de la aplicación
+%----------------------------------------------------------------------------------------
+
+\section{Diagramas sobre funcionamiento de la aplicación}
+
+%------------------------------------------------
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.55]{imagenes/main_view.drawio.png}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.55]{imagenes/conf_view.drawio.png}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.55]{imagenes/conf_componente_view.drawio.png}
+\end{figure}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	5. Diagrama de clases
+%----------------------------------------------------------------------------------------
+
+\section{Diagrama de clases}
+
+%------------------------------------------------
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{imagenes/ds-diagramaclases.png}
+\end{figure}
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	6. Patrones
+%----------------------------------------------------------------------------------------
+
+\section{Patrones}
+
+%------------------------------------------------
+
+\begin{itemize}
+    \item \textbf{Patrón singleton}
+        \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.6]{imagenes/ds-singleton1.png}
+        \end{figure}
+        \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.6]{imagenes/ds-singleton2.png}
+        \end{figure}
+        
+        \newpage
+        
+        \item \textbf{Patrón repositorio}
+        \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.55]{imagenes/ds-repository1.png}
+        \end{figure}
+        \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.55]{imagenes/ds-repository2.png}
+        \end{figure}
+        
+    % \item \textbf{Patrón visitante}
+        % \begin{figure}[H]
+        % \centering
+        % \includegraphics[scale=0.55]{imagenes/conf_componente_view.drawio.png}
+        % \end{figure}
+\end{itemize}
+
+
+
+%------------------------------------------------
+
+
+\end{document}
