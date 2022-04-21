@@ -71,7 +71,7 @@ class Home extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => const HomePage(title: "Home"),
-        "/nueva_compra": (context) => BuyPage(title: "Compra", configId: null),
+        "/nueva_compra": (context) => BuyPage(title: "Configuración", configId: null),
       },
     );
   }

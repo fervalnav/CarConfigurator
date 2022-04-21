@@ -23,10 +23,10 @@ class DataController{
     // Para que cuando abramos la app haya algunas configuraciones de ejemplo
     carConfigRepo = InMemoryCarConfigurationRepository();
     carConfigRepo.addNewCarConfiguration(
-      CarConfiguration.origin("Configuracion de pruebas")
+      CarConfiguration.origin("Configuracion de pruebas 1")
     );
     carConfigRepo.addNewCarConfiguration(
-      CarConfiguration.origin("Configuracion de pruebas segunda")
+      CarConfiguration.origin("Configuracion de pruebas 2")
     );
     activeConfig = InMemoryActiveConfiguration();
 

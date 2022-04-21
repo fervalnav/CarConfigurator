@@ -36,6 +36,12 @@ class CarConfiguration {
     return result;
   }
 
+  setConfigName(String configName) => this.configName = configName;
+
+  String getConfigName() {
+    return this.configName;
+  }
+
   setModel(Option model) => this.model = model;
   
   setColor(Option color) => this.color = color;
