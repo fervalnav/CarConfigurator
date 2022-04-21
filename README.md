@@ -17,12 +17,13 @@ Vistas:
 5. Vista pedido confirmado
 
 ## Requisitos Funcionales
-RF-1: Como usuario quiero poder elegir el modelo del coche
-RF-2: Como usuario quiero poder elegir el color del exterior
-RF-3: Como usuario quiero poder elegir la tapicería
-RF-4: Como usuario quiero poder seleccionar los extras que tiene el coche
-RF-5: Como usuario quiero poder ver un resumen de mi selección
-RF-6: Como usuario quiero poder comprar el coche por la aplicación
+
+- RF-1: Como usuario quiero poder elegir el modelo del coche
+- RF-2: Como usuario quiero poder elegir el color del exterior
+- RF-3: Como usuario quiero poder elegir la tapicería
+- RF-4: Como usuario quiero poder seleccionar los extras que tiene el coche
+- RF-5: Como usuario quiero poder ver un resumen de mi selección
+- RF-6: Como usuario quiero poder comprar el coche por la aplicación
 
 ## Requisitos no funcionales
 
