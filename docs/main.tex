@@ -161,8 +161,6 @@ Además, a la hora de implementar un \emph{mock}, solo tenemos que realizar una 
 \\\\
 Mostramos el código que implementa esta patrón en las siguientes figuras:
 
-\newpage
-
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.55]{imagenes/ds-repository1.png}
@@ -176,6 +174,12 @@ Mostramos el código que implementa esta patrón en las siguientes figuras:
 
 \subsection{Patrón \emph{singleton}}
 
+Con el patrón anterior hemos modelado el acceso a los datos. Sin embargo, hasta ahora, esto puede ser un poco molesto. La opción directa para usar estas implementaciones en distinta partes de la aplicación, es inicializarlas en la función principal e ir pasando estas implementaciones por parámetro, por toda la aplicación.
+\\\\
+Esto es un problema en el caso que tengamos muchos repositorios distintos que ir pasando por toda la aplicación. Por tanto, pensamos que es adecuado el uso del patrón \emph{Singleton}. En dicho \emph{singleton}, que en nuestra código es la clase \emph{DataController}, se recogen todas las interfaces tipo repositorio, se inicializan con cierta implementación deseada y se ponen a disposición con \emph{getters}.
+\\\\
+De esta forma, si una parte de la aplicación necesita acceder a algún repositorio, puede crear un nuevo objeto de la clase (para lo que solo necesitamos un \emph{import '\ldots'} en el fichero) y acceder al repositorio adecuado.
+\\\\
 Mostramos el código que implementa este patrón en las siguientes figuras:
 
 \begin{figure}[H]
@@ -186,6 +190,8 @@ Mostramos el código que implementa este patrón en las siguientes figuras:
     \centering
     \includegraphics[scale=0.6]{imagenes/ds-singleton2.png}
 \end{figure}
+
+En estas figuras se puede apreciar que hemos implementado manualmente el patrón. Dart no trae por defecto el patrón, pero es muy sencillo de implementar, haciendo que el constructor devuelva un atributo estático.
 
 \newpage
 
