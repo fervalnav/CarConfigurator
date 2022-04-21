@@ -195,6 +195,16 @@ En estas figuras se puede apreciar que hemos implementado manualmente el patrón
 
 \newpage
 
+\subsection{Otros patrones}
+
+Impuesto por \emph{Flutter}, estamos usando constantemente el patrón \emph{composite}. Estamos componiendo \emph{widgets} dentro de otros \emph{widgets} para crear las vistas.
+\\\\
+En segundo lugar, buscamos reusar todo el código posible para la creación de las vista. Esto lo hacemos en el módulo de componentes, donde implementamos una serie de funciones para crear componentes que usamos a lo largo de toda la aplicación. Con esto evitamos repetir el mismo código varias veces y, más importante, mantenemos una interfaz visual uniforme. Si queremos cambiar el \emph{look \& feel} de la aplicación, podemos cambiar estas funciones y automáticamente cambiará casi toda la interfaz gráfica de la aplicación.
+\\\\
+En parte estamos implementando el patrón \emph{Modelo - Vista - Controlador}, aunque sin el controlador. Tenemos un modelo para la configuración del coche, que interactúa con la parte de persistencia de datos y con las vistas de la aplicación.
+
+
+
 
 
 \end{document}
