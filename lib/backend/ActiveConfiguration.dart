@@ -57,7 +57,7 @@ class InMemoryActiveConfiguration implements ActiveConfigurationRepository {
   }
   @override
   void setExtra (Option extra) {
-    activeConfig.setColor(extra);
+    activeConfig.setExtra(extra);
   }
   @override
   bool contains(Option o) {
