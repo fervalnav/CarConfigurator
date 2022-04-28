@@ -39,8 +39,6 @@ Para especificar el diseño de los tests, usaremos la plantilla que hemos usado 
         1. Los datos de la opción son correctos
         2. El cálculo del precio asociado a las opciones es correcto
 
-\newpage
-
 # Pruebas de widgets
 
 1. Pruebas sobre la página principal
@@ -49,4 +47,11 @@ Para especificar el diseño de los tests, usaremos la plantilla que hemos usado 
     - **Casos de prueba**:
         1. Eliminar una configuración almacenada y comprobar que se ha borrado
         2. Al pulsar en configurar, se debe cambiar la vista a la configuración
-2.
+2. Pruebas sobre la vista de compra
+    - **Condiciones**: la página de compra funciona correctamente.
+    - **Datos requeridos**: en este caso no hace falta reinicializamos el `DataController`. Usamos los datos que vienen por defecto
+    - **Casos de prueba**:
+        1. Creamos una nueva configuración
+            - Navegamos hasta la vista de compra, desde la vista principal
+            - Guardamos la configuracion, con los datos que se asignan por defecto
+            - Volvemos a la vista principal y comprobamos que esté la nueva configuración con los datos por defecto
