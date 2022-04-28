@@ -4,6 +4,8 @@ import 'package:CarConfigurator/views/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:CarConfigurator/main.dart' as app;
+
 
 void main() {
 
