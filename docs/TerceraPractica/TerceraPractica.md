@@ -32,6 +32,12 @@ Para especificar el diseño de los tests, usaremos la plantilla que hemos usado 
         4. Hacer `set` de la tapicería
         5. Hacer `set` del extra
         6. El cómputo del precio es correcto para un caso concreto
+3. `Option`
+    - **Condiciones**: la clase `Option`, que constituye una parte fundamental de nuestro modelo, funciona como se espera
+    - **Datos requeridos**: por la simpleza de la clase, al principio de cada caso de test creamos una opción sobre la que vamos a realizar las comprobaciones
+    - **Casos de prueba**:
+        1. Los datos de la opción son correctos
+        2. El cálculo del precio asociado a las opciones es correcto
 
 \newpage
 

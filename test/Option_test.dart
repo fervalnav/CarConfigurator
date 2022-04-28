@@ -2,8 +2,6 @@ import 'package:CarConfigurator/models/option.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:CarConfigurator/backend/ActiveConfiguration.dart';
 
-// TODO -- tomo esto de main.dart. Deberia ir en una clase separada
-
 void main() {
   group("Option tests", () {
     test("create option", () {
