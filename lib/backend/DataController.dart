@@ -9,7 +9,7 @@ import 'package:CarConfigurator/backend/CarConfigurationRepository.dart';
 class DataController{
 
   // Instancia que usamos como unico objeto de la clase creado
-  static final DataController _instance = DataController._internal();
+  static DataController _instance = DataController._internal();
 
   CarConfigurationRepository carConfigRepo = InMemoryCarConfigurationRepository();
   ActiveConfigurationRepository activeConfig = InMemoryActiveConfiguration();
@@ -47,6 +47,14 @@ class DataController{
 
   ActiveConfigurationRepository getActiveConfiguration() {
     return activeConfig;
+  }
+
+  /// Funcion para resetear el repositorio de configuraciones
+  /// Unicamente es usada para tests. Es necesaria ya que los tests que haya dentro de un mismo
+  /// main utilizan el mismo repositorio de configuraciones, por lo que los cambios realizados
+  /// en un test afectarían a los demás si no se resetea el repositorio.
+  static void restart() {
+    _instance = DataController._internal();
   }
 
 }
