@@ -1,3 +1,4 @@
+import 'package:CarConfigurator/backend/DataController.dart';
 import 'package:CarConfigurator/views/buy.dart';
 import 'package:CarConfigurator/views/main.dart';
 import 'package:flutter/material.dart';
@@ -6,9 +7,11 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
 
-  group("Home view tests", () {
+  group("HomePage view tests", () {
 
-    testWidgets("HomePage boton Eliminar", (WidgetTester tester) async {
+    testWidgets("HomePage boton Eliminar should delete configuration", (WidgetTester tester) async {
+
+      DataController.restart();
 
       await tester.pumpWidget(const MaterialApp(home: HomePage(title: "Home")));
 
@@ -17,14 +20,16 @@ void main() {
 
       await tester.tap(find.widgetWithText(TextButton, "Eliminar").first);
 
-      await tester.pump();
+      await tester.pumpAndSettle();
 
       expect(find.text("Configuracion de pruebas 1"), findsNothing);
       expect(find.text("Configuracion de pruebas 2"), findsOneWidget);
     });
 
 
-    testWidgets("HomePage boton Configurar", (WidgetTester tester) async {
+    testWidgets("HomePage boton Configurar should change view to configure the selected one", (WidgetTester tester) async {
+
+      DataController.restart();
 
       await tester.pumpWidget(const MaterialApp(home: HomePage(title: "Home")));
 
