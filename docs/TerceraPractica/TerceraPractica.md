@@ -33,3 +33,14 @@ Para especificar el diseño de los tests, usaremos la plantilla que hemos usado 
         5. Hacer `set` del extra
         6. El cómputo del precio es correcto para un caso concreto
 
+\newpage
+
+# Pruebas de widgets
+
+1. Pruebas sobre la página principal
+    - **Condiciones**: la página principal funciona correctamente.
+    - **Datos requeridos**: reinicializamos el `DataController`, porque es un `singleton` y queremos que las pruebas corran sobre un estado *inicial* de la aplicación
+    - **Casos de prueba**:
+        1. Eliminar una configuración almacenada y comprobar que se ha borrado
+        2. Al pulsar en configurar, se debe cambiar la vista a la configuración
+2.
