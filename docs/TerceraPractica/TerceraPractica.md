@@ -17,9 +17,19 @@ Para especificar el diseño de los tests, usaremos la plantilla que hemos usado 
     - **Condiciones**: El repositorio funciona como se espera. Se realizan las siguientes operaciones con éxito: añadir configuraciones configuraciones, buscar configuraciones existentes, eliminar configuraciones, los identificadores dan el comportamiento esperado (no se añaden configuraciones que ya existen, no tiene efecto borrar dos veces la misma configuración)
     - **Datos requeridos**: Partimos de unos datos iniciales para realizar las comprobaciones. Se crean en `create_basic_repo()`
     - **Casos de prueba**:
-        1.  Comprobar almacenamiento
+        1. Comprobar almacenamiento
         2. Añadir configuraciones
         3. Buscar configuraciones
         4. Eliminar configuraciones
         5. Intentar eliminar una configuración dos veces
+2. `ActiveConfigurationRepository`
+    - **Condiciones**: el repositorio con la configuración actual funciona como se espera. Podemos cambiar la configuración activa en ese momento, el modelo, color, tapicería y extra. El algoritmo que calcula el precio funciona correctamente
+    - **Datos requeridos**: el repositorio parte de una configuración activa por defecto. Para los modelos, colores, tapicerías y extras usamos unas listas prefijadas en el fichero `tests/ActiveConfiguration_test.dart`, para servir como opciones a usar
+    - **Casos de prueba**:
+        1. Activar una configuración en concreto
+        2. Hacer `set` del modelo
+        3. Hacer `set` del color
+        4. Hacer `set` de la tapicería
+        5. Hacer `set` del extra
+        6. El cómputo del precio es correcto para un caso concreto
 
