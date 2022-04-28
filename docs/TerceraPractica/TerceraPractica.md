@@ -2,7 +2,9 @@
 title: Tercera Práctica
 author:
     - Sergio Quijano Rey
-    - alguien mas
+    - Fernando Valdés Navarro
+    - Carlos Corts Valdivia
+    - Ignacio Carvajal Herrera
 date: 28.04.2022
 geometry: margin=3.0cm
 ---
@@ -53,5 +55,23 @@ Para especificar el diseño de los tests, usaremos la plantilla que hemos usado 
     - **Casos de prueba**:
         1. Creamos una nueva configuración
             - Navegamos hasta la vista de compra, desde la vista principal
-            - Guardamos la configuracion, con los datos que se asignan por defecto
+            - Guardamos la configuración, con los datos que se asignan por defecto
             - Volvemos a la vista principal y comprobamos que esté la nueva configuración con los datos por defecto
+
+# Resultado de los tests
+
+En la siguiente figura se puede observar cómo los tests de la aplicación pasan sin problemas:
+
+![Resultado de lanzar todos los tests, tanto unitarios como de *widgets*](./tests.png)
+
+# Tests de integración
+
+- Hemos creado un test de integración para comprobar que el proceso de creación y guardado de una configuración funciona correctamente
+- Sin embargo, para correr estos tests hemos tenido problemas con el móvil (estos *tests* corren en un dispositivo físico, y nuestros móviles bloquean la instalación aunque tengamos las opciones para desarrolladores habilitadas y configuradas)
+- En `integration_test` se puede consultar este test de integración, que es muy parecido al *test* de *widget* realizado sobre la vista de compra
+
+# Uso de git
+
+- Igual que en la práctica anterior, hemos usado *github* como sistema de versión de controles
+- Dicho repositorio se puede encontrar en [este enlace](https://github.com/fervalnav/CarConfigurator)
+- Hemos usado características como creación de *issues* para asignación de tareas, uso de ramas y *pull requests* para desarrollo en paralelo
