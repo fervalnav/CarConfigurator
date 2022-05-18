@@ -33,13 +33,13 @@ List<Option> extrasOptions = [
 InMemoryCarConfigurationRepository create_basic_repo(){
   InMemoryCarConfigurationRepository repo = InMemoryCarConfigurationRepository();
 
-  CarConfiguration first = CarConfiguration("Primera configuracion", modelOptions[0], colorOptions[0], tapiceriaOptions[0]);
+  CarConfiguration first = CarConfiguration("Primera configuracion", modelOptions[0], colorOptions[0], tapiceriaOptions[0], <Option>[]);
   repo.addNewCarConfiguration(first);
 
-  CarConfiguration second = CarConfiguration("Segunda configuracion", modelOptions[1], colorOptions[1], tapiceriaOptions[1]);
+  CarConfiguration second = CarConfiguration("Segunda configuracion", modelOptions[1], colorOptions[1], tapiceriaOptions[1], <Option>[]);
   repo.addNewCarConfiguration(second);
 
-  CarConfiguration third = CarConfiguration("Tercera configuracion", modelOptions[2], colorOptions[2], tapiceriaOptions[1]);
+  CarConfiguration third = CarConfiguration("Tercera configuracion", modelOptions[2], colorOptions[2], tapiceriaOptions[1], <Option>[]);
   repo.addNewCarConfiguration(third);
 
   return repo;
@@ -65,14 +65,14 @@ void main() {
       InMemoryCarConfigurationRepository repo = create_basic_repo();
 
       // Añado una nueva config, asi que deberiamos tener 4 configuraciones almacenadas
-      CarConfiguration new_conf = CarConfiguration("Configuracion nueva", modelOptions[1], colorOptions[3], tapiceriaOptions[0]);
+      CarConfiguration new_conf = CarConfiguration("Configuracion nueva", modelOptions[1], colorOptions[3], tapiceriaOptions[0], <Option>[]);
       repo.addNewCarConfiguration(new_conf);
       expect(repo.getAllConfigurations().length, 4);
 
       // Añado una nueva config, asi que deberiamos tener 5 configuraciones almacenadas
       // Al estar creando una configuracion con los mismos datos, pero UniqueKey distinta (de lo que
       // se encarga la clase CarConfiguration), deberiamos añadir un nuevo elemento
-      CarConfiguration other_new_conf = CarConfiguration("Configuracion nueva", modelOptions[1], colorOptions[3], tapiceriaOptions[0]);
+      CarConfiguration other_new_conf = CarConfiguration("Configuracion nueva", modelOptions[1], colorOptions[3], tapiceriaOptions[0], <Option>[]);
       repo.addNewCarConfiguration(other_new_conf);
       expect(repo.getAllConfigurations().length, 5);
 
@@ -85,7 +85,7 @@ void main() {
       InMemoryCarConfigurationRepository repo = create_basic_repo();
 
       // Añado una nueva config y la busco
-      CarConfiguration new_conf = CarConfiguration("Configuracion nueva", modelOptions[1], colorOptions[3], tapiceriaOptions[0]);
+      CarConfiguration new_conf = CarConfiguration("Configuracion nueva", modelOptions[1], colorOptions[3], tapiceriaOptions[0], <Option>[]);
       repo.addNewCarConfiguration(new_conf);
 
       CarConfiguration? found_config = repo.findCarConfiguration(new_conf.id);
@@ -93,7 +93,7 @@ void main() {
 
       // Si creo una configuracion con los mismos valores, el id deberia ser diferente, y por tanto
       // al buscar no deberiamos encontrar nada
-      CarConfiguration other_conf = CarConfiguration("Configuracion nueva", modelOptions[1], colorOptions[3], tapiceriaOptions[0]);
+      CarConfiguration other_conf = CarConfiguration("Configuracion nueva", modelOptions[1], colorOptions[3], tapiceriaOptions[0], <Option>[]);
       CarConfiguration? other_found_config = repo.findCarConfiguration(other_conf.id);
       expect(other_found_config, null);
     });
@@ -102,7 +102,7 @@ void main() {
       InMemoryCarConfigurationRepository repo = create_basic_repo();
 
       // Añado una nueva config que luego voy a borrar
-      CarConfiguration new_conf = CarConfiguration("Configuracion nueva", modelOptions[1], colorOptions[3], tapiceriaOptions[0]);
+      CarConfiguration new_conf = CarConfiguration("Configuracion nueva", modelOptions[1], colorOptions[3], tapiceriaOptions[0], <Option>[]);
       repo.addNewCarConfiguration(new_conf);
       expect(repo.getAllConfigurations().length, 4);
 
@@ -116,7 +116,7 @@ void main() {
       InMemoryCarConfigurationRepository repo = create_basic_repo();
 
       // Añado una nueva config que luego voy a borrar
-      CarConfiguration new_conf = CarConfiguration("Configuracion nueva", modelOptions[1], colorOptions[3], tapiceriaOptions[0]);
+      CarConfiguration new_conf = CarConfiguration("Configuracion nueva", modelOptions[1], colorOptions[3], tapiceriaOptions[0], <Option>[]);
       repo.addNewCarConfiguration(new_conf);
       expect(repo.getAllConfigurations().length, 4);
 
