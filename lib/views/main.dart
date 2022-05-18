@@ -13,11 +13,11 @@ import 'package:CarConfigurator/views/buy.dart';
 /// Widget que representa la pagina home de la aplicacion
 /// Es stateful (definimos en el estado en una clase mas abajo)
 class HomePage extends StatefulWidget {
+
   const HomePage({Key? key, required this.title}) : super(key: key);
 
   /// Titulo de la app que vamos a mostrar en la barra superior
   final String title;
-
 
   /// Creacion del estado de la vista
   @override
@@ -28,12 +28,14 @@ class HomePage extends StatefulWidget {
 /// Controla el metodo build() que indica como queremos mostrar la vista
 /// lo tienen los elementos dentro de la vista
 class _HomePageState extends State<HomePage> {
-  List<CarConfiguration> configurations =
-      DataController().getCarConfigRepo().getAllConfigurations();
+
+  List<CarConfiguration> configurations = DataController().getCarConfigRepo().getAllConfigurations();
+
   /// Metodo que define la vista que representa esta pagina
   /// Se ejecuta cada vez que llamamos a setState
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       // Barra horizontal en la parte superior de la app
       appBar: AppBar(
@@ -42,15 +44,17 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Center(
           child: ListView.builder(
-        itemCount: configurations.length,
-        itemBuilder: (context, index) {
-          final item = configurations[index];
-          return createSimpleCard(
-              item.configName,
-              "El precio de esta configuracion es ${item.getTotalPrice()}",
-              "Configurar",
-              "Eliminar",
-              () => {
+            itemCount: configurations.length,
+            itemBuilder: (context, index) {
+
+              final item = configurations[index];
+
+              return createSimpleCard(
+                item.configName,
+                "El precio de esta configuracion es ${item.getTotalPrice()}",
+                "Configurar",
+                "Eliminar",
+                () => {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -58,17 +62,16 @@ class _HomePageState extends State<HomePage> {
                                 title: "Configuración",
                                 configId: item.id
                             ))).then((value) => setState(() {}))
-                  }, () {
-            DataController().getCarConfigRepo().deleteCarConfiguration(item.id);
-            setState(() {
-              configurations =
-                  DataController().getCarConfigRepo().getAllConfigurations();
-            });
-          });
-        },
-      )),
-      // Boton para crear una nueva compra
-      floatingActionButton: FloatingActionButton(
+                },  // Funcion boton Configurar
+                () {
+                  DataController().getCarConfigRepo().deleteCarConfiguration(item.id);
+                  setState(() {
+                    configurations = DataController().getCarConfigRepo().getAllConfigurations();
+                  });
+                }); // Funcion boton Eliminar
+              }, // itemBuilder
+          )),
+      floatingActionButton: FloatingActionButton( // Boton para crear una nueva compra
         onPressed: () => {Navigator.pushNamed(context, "/nueva_compra").then((value) => setState(() {}))},
         tooltip: 'Crear nueva configuracion',
         child: const Icon(Icons.add),

@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
+import 'views/LoadingScreen.dart';
 import 'views/main.dart';
 import 'views/buy.dart';
-import 'models/option.dart';
+
 
 void main() {
+
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+
   MyApp({Key? key}) : super(key: key);
 
   @override
@@ -20,37 +22,10 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class LoadingScreen extends StatefulWidget {
-  @override
-  _LoadingScreenState createState() => _LoadingScreenState();
-}
-
-class _LoadingScreenState extends State<LoadingScreen> {
-  @override
-  void initState() {
-    getToken().then((val) {
-      Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (_) => Home()));
-    });
-    super.initState();
-  }
-
-  // Funcion que al llamarla provoca un delay y devuelve un token de seguridad
-  Future<String> getToken() async {
-    await Future.delayed(const Duration(seconds: 4));
-    return "123";
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(child: Lottie.asset('assets/LogotipoAnimadoLottie.json')),
-    );
-  }
-}
+// ------------------------------------------------------------------
 
 class Home extends StatelessWidget {
+
   const Home({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
@@ -76,28 +51,3 @@ class Home extends StatelessWidget {
     );
   }
 }
-
-/// TODO -- esto deberia ir guardado en otro lugar!
-List<Option> modelOptions = [
-  Option(1, "Model 3", 23000, "images/modelo_1.png"),
-  Option(2, "Model Y", 25000, "images/modelo_2.png"),
-  Option(3, "Model S", 40000, "images/modelo_3.png"),
-  Option(4, "Model X", 30000, "images/modelo_4.png"),
-];
-
-List<Option> colorOptions = [
-  Option(1, "Blanco", 0, "images/color_1.png"),
-  Option(2, "Negro", 10, "images/color_2.png"),
-  Option(3, "Rojo", 20, "images/color_3.png"),
-  Option(4, "Azul", 20, "images/color_4.png"),
-];
-
-List<Option> tapiceriaOptions = [
-  Option(1, "Deportivo", 200, "images/tapiceria_1.jpg"),
-  Option(2, "Cuero", 100, "images/tapiceria_2.png"),
-];
-
-List<Option> extrasOptions = [
-  Option(1, "Altavoces", 200, "images/extras_1.jpg"),
-  Option(2, "Pantalla", 500, "images/extras_2.jpg"),
-];

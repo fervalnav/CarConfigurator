@@ -30,7 +30,6 @@ class DataController{
     );
     activeConfig = InMemoryActiveConfiguration();
 
-
   }
 
   /// Constructor de la clase que devuelve la instancia unica

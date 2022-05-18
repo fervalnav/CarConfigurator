@@ -63,22 +63,7 @@ flutter:
 
   # Images added to the app
   assets:
-    - images/pruebas.jpg
-    - images/paleta_colores.jpg
-    - images/tapiceria.jpg
-    - images/extras.jpg
-    - images/modelo_1.png
-    - images/modelo_2.png
-    - images/modelo_3.png
-    - images/modelo_4.png
-    - images/color_1.png
-    - images/color_2.png
-    - images/color_3.png
-    - images/color_4.png
-    - images/tapiceria_1.jpg
-    - images/tapiceria_2.png
-    - images/extras_1.jpg
-    - images/extras_2.jpg
+    - images/
     - assets/LogotipoAnimadoLottie.json
 
   # An image asset can refer to one or more resolution-specific "variants", see

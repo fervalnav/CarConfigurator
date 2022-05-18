@@ -40,6 +40,7 @@ class InMemoryCarConfigurationRepository implements CarConfigurationRepository{
   /// Añadimos una nueva configuracion al repositorio
   @override
   void addNewCarConfiguration(CarConfiguration newConfig){
+
     // identificador de esta nueva config
     CarConfiguration? config = findCarConfiguration(newConfig.id);
     if(config == null) {
@@ -54,10 +55,12 @@ class InMemoryCarConfigurationRepository implements CarConfigurationRepository{
 
     // Buscamos la configuracion en nuestra lista de configuraciones
     Iterable<CarConfiguration> iter = listConfigurations.where((element) => element.id == id);
+
     if(iter.isEmpty) {
-    // No hemos encontrado la configuracion buscada
+      // No hemos encontrado la configuracion buscada
       return null;
-    } else {
+    }
+    else {
       return iter.first;
     }
 
@@ -66,11 +69,11 @@ class InMemoryCarConfigurationRepository implements CarConfigurationRepository{
   /// Borramos una configuracion del repositorio
   @override
   void deleteCarConfiguration(UniqueKey id){
+
     CarConfiguration? config = findCarConfiguration(id);
     if(config != null) {
       listConfigurations.remove(config);
     }
-
   }
 
   /// Modificamos una configuracion en el repositorio
@@ -79,16 +82,17 @@ class InMemoryCarConfigurationRepository implements CarConfigurationRepository{
   /// porque CarConfiguration tiene ya dicha identificacion como atributo
   @override
   void modifyCarConfigurations(CarConfiguration newConfig){
+
     CarConfiguration? config = findCarConfiguration(newConfig.id);
     if(config != null) {
       listConfigurations.remove(config);
     }
     listConfigurations.add(newConfig);
-
   }
 
   @override
   List<CarConfiguration> getAllConfigurations(){
+
     return listConfigurations;
   }
 

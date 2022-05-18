@@ -6,21 +6,18 @@ import 'package:CarConfigurator/models/option.dart';
 import 'package:flutter/cupertino.dart';
 
 class Selection extends StatelessWidget {
+
   final String title;
   final List<Option> options;
   final OptionType type;
-  const Selection(
-      {Key? key,
-      required this.title,
-      required this.options,
-      required this.type})
-      : super(key: key);
+
+  const Selection({Key? key, required this.title, required this.options, required this.type}) : super(key: key);
 
   @override
-  @override
   Widget build(BuildContext context) {
-    ActiveConfigurationRepository config =
-        DataController().getActiveConfiguration();
+
+    ActiveConfigurationRepository config = DataController().getActiveConfiguration();
+
     return Scaffold(
       // Barra horizontal en la parte superior de la app
       appBar: AppBar(

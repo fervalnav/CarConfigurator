@@ -17,7 +17,7 @@ class CarConfiguration {
   Option tapiceria = Option(1, "Deportivo", 200, "images/tapiceria_1.jpg");
   List<Option> extras = [];
 
-  CarConfiguration(this.configName, this.model, this.color, this.tapiceria) {
+  CarConfiguration(this.configName, this.model, this.color, this.tapiceria, this.extras) {
     // Generamos automaticamente el valor del identificador
     // Por tanto, no tenemos que pasarlo como parametro del constructor
     id = UniqueKey();
@@ -39,14 +39,26 @@ class CarConfiguration {
   setConfigName(String configName) => this.configName = configName;
 
   String getConfigName() {
-    return this.configName;
+    return configName;
   }
 
   setModel(Option model) => this.model = model;
 
+  Option getModel() {
+    return model;
+  }
+
   setColor(Option color) => this.color = color;
 
+  Option getColor() {
+    return color;
+  }
+
   setTapiceria(Option tapiceria) => this.tapiceria = tapiceria;
+
+  Option getTapiceria() {
+    return tapiceria;
+  }
 
   setExtra(Option extra) {
     if(!extras.contains(extra)) extras.add(extra);
@@ -54,9 +66,14 @@ class CarConfiguration {
 
   removeExtra(Option extra) => extras.remove(extra);
 
+  List<Option> getExtras() {
+    return extras;
+  }
+
   contains(Option option) {
     return [model, color, tapiceria, ...extras].contains(option);
   }
+
 }
 
 enum OptionType { model, color, tapiceria, extra}
