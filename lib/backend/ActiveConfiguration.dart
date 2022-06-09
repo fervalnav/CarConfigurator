@@ -1,6 +1,9 @@
-import 'package:CarConfigurator/models/CarConfiguration.dart';
+import 'package:CarConfigurator/models/car_configuration.dart';
 import 'package:CarConfigurator/models/option.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:CarConfigurator/models/modelo.dart';
+import 'package:CarConfigurator/models/color.dart';
+import 'package:CarConfigurator/models/tapiceria.dart';
+import 'package:CarConfigurator/models/extra.dart';
 
 abstract class ActiveConfigurationRepository {
   getTotalPrice();
@@ -50,7 +53,7 @@ class InMemoryActiveConfiguration implements ActiveConfigurationRepository {
 
   @override
   void setModel (Option model) {
-    activeConfig.setColor(model);
+    activeConfig.setModel(model);
   }
 
   @override
@@ -70,7 +73,7 @@ class InMemoryActiveConfiguration implements ActiveConfigurationRepository {
 
   @override
   void setTapiceria (Option tapiceria) {
-    activeConfig.setColor(tapiceria);
+    activeConfig.setTapiceria(tapiceria);
   }
 
   @override

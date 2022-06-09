@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:CarConfigurator/models/option.dart';
+import 'package:CarConfigurator/models/modelo.dart';
+import 'package:CarConfigurator/models/color.dart';
+import 'package:CarConfigurator/models/tapiceria.dart';
+import 'package:CarConfigurator/models/extra.dart';
 
 /// Representa la configuracion de compra de un coche realizada
 /// TODO -- hay que hacer bien este modelado, pero lo hago asi para poder pintar cosas con mas o menos sentido
@@ -12,26 +16,32 @@ class CarConfiguration {
   /// Nombre que le queremos dar a la configuracion
   String configName = "";
 
-  Option model = Option(1, "Model 3", 23000, "images/modelo_1.png");
-  Option color = Option(1, "Blanco", 0, "images/color_1.png");
-  Option tapiceria = Option(1, "Deportivo", 200, "images/tapiceria_1.jpg");
+  Option model = Modelo(id: 1, nombre: "Modelo 3", precio: 23000);
+  Option color = Color(id: 1, nombre: "Blanco", precio: 0);
+  Option tapiceria = Tapiceria(id: 1, nombre: "Cuero", precio: 200);
   List<Option> extras = [];
+
+  // Option modelx = Option(1, "Model 3", 23000, "images/modelo_1.png");
+  // Option colorx = Option(1, "Blanco", 0, "images/color_1.png");
+  // Option tapiceriax = Option(1, "Deportivo", 200, "images/tapiceria_1.jpg");
+  // List<Option> extrasx = [];
 
   CarConfiguration(this.configName, this.model, this.color, this.tapiceria, this.extras) {
     // Generamos automaticamente el valor del identificador
     // Por tanto, no tenemos que pasarlo como parametro del constructor
     id = UniqueKey();
   }
-   CarConfiguration.origin(this.configName) {
+
+  CarConfiguration.origin(this.configName) {
     // Generamos automaticamente el valor del identificador
     // Por tanto, no tenemos que pasarlo como parametro del constructor
     id = UniqueKey();
   }
 
   getTotalPrice() {
-    var result = model.getPrice() + color.getPrice() + tapiceria.getPrice();
+    var result = model.precio + color.precio + tapiceria.precio;
     if(extras.isNotEmpty) {
-      result += extras.map((extra) => extra.getPrice()).reduce((a, b) => a+ b);
+      result += extras.map((extra) => extra.precio).reduce((a, b) => a+ b);
     }
     return result;
   }
@@ -75,5 +85,3 @@ class CarConfiguration {
   }
 
 }
-
-enum OptionType { model, color, tapiceria, extra}

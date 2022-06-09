@@ -7,7 +7,7 @@
 import 'package:CarConfigurator/backend/DataController.dart';
 import 'package:CarConfigurator/components/simple_card.dart';
 import 'package:flutter/material.dart';
-import 'package:CarConfigurator/models/CarConfiguration.dart';
+import 'package:CarConfigurator/models/car_configuration.dart';
 import 'package:CarConfigurator/views/buy.dart';
 
 /// Widget que representa la pagina home de la aplicacion

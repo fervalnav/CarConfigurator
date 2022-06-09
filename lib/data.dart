@@ -1,4 +1,4 @@
-import 'models/CarConfiguration.dart';
+import 'models/car_configuration.dart';
 import 'models/option.dart';
 
 /// TODO -- esto deberia ir guardado en otro lugar!
@@ -47,11 +47,4 @@ final List<List<Option>> optionsConfigView = <List<Option>>[
   colorOptions,
   tapiceriaOptions,
   extrasOptions
-];
-
-final List<OptionType> optionsTypeConfigView = <OptionType>[
-  OptionType.model,
-  OptionType.color,
-  OptionType.tapiceria,
-  OptionType.extra
 ];

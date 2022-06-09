@@ -1,11 +1,10 @@
 import 'package:CarConfigurator/backend/ActiveConfiguration.dart';
-import 'package:CarConfigurator/models/CarConfiguration.dart';
+import 'package:CarConfigurator/models/car_configuration.dart';
 import 'package:CarConfigurator/backend/DataController.dart';
 import 'package:CarConfigurator/views/selection.dart';
 import 'package:flutter/material.dart';
 import 'package:CarConfigurator/components/simple_box.dart';
-
-import '../Data.dart';
+import 'package:CarConfigurator/models/option.dart';
 
 /// Vista de compra/configuracion de un nuevo coche
 class BuyPage extends StatefulWidget {
@@ -121,7 +120,6 @@ class _BuyPageState extends State<BuyPage> {
                                             MaterialPageRoute(
                                               builder: (context) => Selection(
                                                   title: footerImagesConfigView[index],
-                                                  options: optionsConfigView[index],
                                                   type: optionsTypeConfigView[index])
                                             )
                                           )
@@ -302,3 +300,24 @@ class _BuyPageState extends State<BuyPage> {
   }
 
 }
+
+final List<String> imagesConfigView = <String>[
+  "images/pruebas.jpg",
+  "images/paleta_colores.jpg",
+  "images/tapiceria.jpg",
+  "images/extras.jpg"
+];
+
+final List<String> footerImagesConfigView = <String>[
+  "Modelo",
+  "Colores",
+  "Tapiceria",
+  "Extras"
+];
+
+final List<OptionType> optionsTypeConfigView = <OptionType>[
+  OptionType.model,
+  OptionType.color,
+  OptionType.tapiceria,
+  OptionType.extra
+];
