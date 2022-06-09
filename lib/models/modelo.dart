@@ -10,7 +10,7 @@ class Modelo extends Option {
 
   static const  String _baseAddress = 'clados.ugr.es';
 
-  static const  String _applicationName = '/DS1_3';
+  static const  String _applicationName = 'DS1_3';
 
   Modelo({required id, required nombre, required precio}) : super(id, nombre, precio);
 
@@ -28,7 +28,7 @@ class Modelo extends Option {
 
     final response = await http.get(
         // Uri.https(_baseAddress, '$_applicationName/modelos/8'),
-        Uri.https(_baseAddress, 'DS1_3/modelos/8.json'),
+        Uri.https(_baseAddress, 'DS1_3/modelos/9.json'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         }

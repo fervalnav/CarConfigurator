@@ -1,33 +1,55 @@
 import 'models/car_configuration.dart';
-import 'models/option.dart';
+import 'package:CarConfigurator/models/option.dart';
+import 'package:CarConfigurator/models/modelo.dart';
+import 'package:CarConfigurator/models/color.dart';
+import 'package:CarConfigurator/models/tapiceria.dart';
+import 'package:CarConfigurator/models/extra.dart';
 
 /// TODO -- esto deberia ir guardado en otro lugar!
-List<Option> modelOptions = [
-  Option(1, "Model 3", 23000, "images/modelo_1.png"),
-  Option(2, "Model Y", 25000, "images/modelo_2.png"),
-  Option(3, "Model S", 40000, "images/modelo_3.png"),
-  Option(4, "Model X", 30000, "images/modelo_4.png"),
+List<Modelo> modelos = [
+  Modelo(id: 1, nombre: "Model 3", precio: 23000),
+  Modelo(id: 2, nombre: "Model Y", precio: 25000),
+  Modelo(id: 3, nombre: "Model S", precio: 40000),
+  Modelo(id: 4, nombre: "Model X", precio: 30000),
+];
+List<String> modelImages = [
+  "images/modelo_1.png",
+  "images/modelo_2.png",
+  "images/modelo_3.png",
+  "images/modelo_4.png"
 ];
 
-List<Option> colorOptions = [
-  Option(1, "Blanco", 0, "images/color_1.png"),
-  Option(2, "Negro", 10, "images/color_2.png"),
-  Option(3, "Rojo", 20, "images/color_3.png"),
-  Option(4, "Azul", 20, "images/color_4.png"),
+List<Color> colors = [
+  Color(id: 1, nombre: "Blanco", precio: 0),
+  Color(id: 2, nombre: "Negro", precio: 10),
+  Color(id: 3, nombre: "Rojo", precio: 20),
+  Color(id: 4, nombre: "Azul", precio: 20),
+];
+List<String> colorImages = [
+  "images/color_1.png",
+  "images/color_2.png",
+  "images/color_3.png",
+  "images/color_4.png"
 ];
 
-List<Option> tapiceriaOptions = [
-  Option(1, "Deportivo", 200, "images/tapiceria_1.jpg"),
-  Option(2, "Cuero", 100, "images/tapiceria_2.png"),
+List<Tapiceria> tapicerias = [
+  Tapiceria(id: 1, nombre: "Deportivo", precio: 200),
+  Tapiceria(id: 2, nombre: "Cuero", precio: 100),
+];
+List<String> tapiceriaImages = [
+  "images/tapiceria_1.png",
+  "images/tapiceria_2.png"
 ];
 
-List<Option> extrasOptions = [
-  Option(1, "Altavoces", 200, "images/extras_1.jpg"),
-  Option(2, "Pantalla", 500, "images/extras_2.jpg"),
+List<Extra> extras = [
+  Extra(id: 1, nombre: "Altavoces", precio: 200),
+  Extra(id: 2, nombre: "Pantalla", precio: 500),
+];
+List<String> extrasImages = [
+  "images/extra_1.png",
+  "images/extra_2.png"
 ];
 
-// ------------------------------------------------------------------
-//
 final List<String> imagesConfigView = <String>[
   "images/pruebas.jpg",
   "images/paleta_colores.jpg",
@@ -40,11 +62,4 @@ final List<String> footerImagesConfigView = <String>[
   "Colores",
   "Tapiceria",
   "Extras"
-];
-
-final List<List<Option>> optionsConfigView = <List<Option>>[
-  modelOptions,
-  colorOptions,
-  tapiceriaOptions,
-  extrasOptions
 ];
